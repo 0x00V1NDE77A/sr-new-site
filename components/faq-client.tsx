@@ -19,14 +19,14 @@ export const FAQClient = ({ faqs }: FAQClientProps) => {
   }
   
   return (
-    <section className="px-4 py-24 bg-black sm:px-6 lg:px-8">
+    <section className="px-4 py-24 bg-white sm:px-6 lg:px-8">
       {/* FAQ Schema for SEO */}
       <FAQSchema faqs={faqs} />
       
       <div className="max-w-4xl mx-auto">
         <div className="mb-16 text-center">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <h2 className="text-4xl font-bold text-white md:text-5xl">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold text-black md:text-5xl">Frequently Asked Questions</h2>
             <button className="faq-button">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                 <path
@@ -36,23 +36,42 @@ export const FAQClient = ({ faqs }: FAQClientProps) => {
               <span className="tooltip">FAQ</span>
             </button>
           </div>
-          <p className="max-w-2xl mx-auto text-lg text-gray-400">
+          <p className="max-w-2xl mx-auto text-lg text-gray-600">
             Learn more about SR Holding's software development services and technology solutions
           </p>
         </div>
 
         <Accordion type="single" defaultValue="item-1" collapsible className="w-full max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index + 1}`} className="px-6 border-gray-800 rounded-lg bg-gray-900/50">
-              <AccordionTrigger className="text-left text-white hover:text-white">
+            <AccordionItem key={index} value={`item-${index + 1}`} className="px-6 border-gray-200 rounded-lg bg-gray-50">
+              <AccordionTrigger className="text-left text-black hover:text-black">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-gray-300">
+              <AccordionContent className="text-gray-700">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
+
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-black mb-4">Have other questions?</h3>
+            <p className="text-gray-600 mb-8">
+              Can't find what you're looking for? Our team is here to help with any questions about our software development services.
+            </p>
+            <a 
+              href="/contact" 
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-black border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-colors duration-200"
+            >
+              Contact Us
+              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
 
       <style jsx>{`
@@ -108,7 +127,6 @@ export const FAQClient = ({ faqs }: FAQClientProps) => {
           top: -20px;
           opacity: 0;
           background-color: #000000;
-          background-image: linear-gradient(147deg, #000000 0%, #ffffff 74%);
           color: white;
           padding: 5px 10px;
           border-radius: 5px;
@@ -125,9 +143,7 @@ export const FAQClient = ({ faqs }: FAQClientProps) => {
           content: "";
           width: 10px;
           height: 10px;
-          background-color: #ffffff;
-          background-size: 1000%;
-          background-position: center;
+          background-color: #000000;
           transform: rotate(45deg);
           bottom: -15%;
           transition-duration: 0.3s;

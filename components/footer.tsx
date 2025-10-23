@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from "lucide-react"
 import { FlipButton } from "@/components/animate-ui/buttons/flip"
 import Image from "next/image"
 
@@ -59,7 +59,6 @@ export default function Footer() {
             <div className="flex space-x-4">
               {[
                 { icon: Linkedin, href: "https://www.linkedin.com/company/sr-software-holding" },
-                { icon: Twitter, href: "#" },
                 { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61582549137239" },
                 { icon: Instagram, href: "https://www.instagram.com/sr.holding.ltd/" },
               ].map((social, index) => (
@@ -158,7 +157,7 @@ export default function Footer() {
           <p className="text-sm text-gray-400">© {currentYear} SR Holding. All rights reserved.</p>
           <div className="flex space-x-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((link, index) => (
-              <a key={index} href="#">
+              <a key={index} href="/legal">
                 <FlipButton
                   frontText={link}
                   backText="Read"

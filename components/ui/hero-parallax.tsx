@@ -69,7 +69,7 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse mb-20 space-x-20 space-x-reverse">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -78,7 +78,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row mb-20 space-x-20 ">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -87,7 +87,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-20 space-x-reverse">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -103,11 +103,11 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold text-white dark:text-white">
-       we create Software <br /> That makes you sell more
+    <div className="relative top-0 left-0 w-full px-4 py-20 mx-auto max-w-7xl md:py-40">
+      <h1 className="text-2xl font-bold text-white md:text-7xl dark:text-white">
+       We create Software <br /> That makes you sell more
       </h1>
-      <p className="max-w-2xl text-base md:text-xl text-white mt-8 dark:text-neutral-200">
+      <p className="max-w-2xl mt-8 text-base text-white md:text-xl dark:text-neutral-200">
         We build beautiful products with the latest technologies and frameworks.
         We are a team of passionate developers and designers that love to build
         amazing products.
@@ -146,12 +146,12 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0"
+          className="absolute inset-0 object-cover object-left-top w-full h-full"
           alt={product.title}
         />
       </a>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+      <div className="absolute inset-0 w-full h-full bg-black opacity-0 pointer-events-none group-hover/product:opacity-80"></div>
+      <h2 className="absolute text-white opacity-0 bottom-4 left-4 group-hover/product:opacity-100">
         {product.title}
       </h2>
     </motion.div>

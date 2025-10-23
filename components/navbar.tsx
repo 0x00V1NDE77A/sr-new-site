@@ -29,13 +29,13 @@ export default function Navbar() {
           {/* Logo - Absolute positioned left */}
           <div className="absolute left-0 flex-shrink-0">
             <Link href="/">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-muted transition-colors duration-200">
+              <div className="flex items-center justify-center w-16 h-16 rounded-lg hover:bg-muted transition-colors duration-200">
                 <Image
                   src="/logo.png"
                   alt="SR Holding Logo"
-                  width={32}
-                  height={32}
-                  className="w-8 h-8 object-contain"
+                  width={56}
+                  height={56}
+                  className="w-14 h-14 object-contain"
                 />
               </div>
             </Link>
@@ -107,9 +107,9 @@ export default function Navbar() {
                   <Image
                     src="/logo.png"
                     alt="SR Holding Logo"
-                    width={28}
-                    height={28}
-                    className="w-7 h-7 object-contain"
+                    width={48}
+                    height={48}
+                    className="w-12 h-12 object-contain"
                   />
                 </motion.div>
                 <motion.span 

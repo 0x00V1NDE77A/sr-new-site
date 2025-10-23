@@ -26,12 +26,12 @@ export default function Home() {
       <HomeTopClient />
       <Company />
       <PortfolioSection />
-      <HomeBottomClient />
+      {/* <HomeBottomClient /> */}
       {/* FAQ server component - wrapped in Suspense to prevent blocking */}
       <Suspense fallback={<FAQLoadingSkeleton />}>
         <FAQSection />
       </Suspense>
-      <TestimonialsClient />
+      {/* <TestimonialsClient /> */}
       <Footer />
     </div>
   )

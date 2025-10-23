@@ -235,3 +235,17 @@
 .animation-delay-600 {
   animation-delay: 600ms;
 }
+
+/* Print styles for legal page */
+@media print {
+  body { 
+    -webkit-print-color-adjust: exact; 
+    color-adjust: exact; 
+  }
+  .no-print { 
+    display: none !important; 
+  }
+  .print-break { 
+    page-break-before: always; 
+  }
+}
