@@ -8,7 +8,7 @@ export function TimelineDemo() {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            SR Holding reaches a major milestone with over 500 projects delivered successfully and serving more than 500 clients globally. Our team has grown to 200+ software professionals working on 300+ active projects, establishing us as a leading software development company in the industry.
+            SR Holding continues to grow with 50+ successful projects delivered and serving 25+ clients across various industries. Our team has expanded to 15+ skilled software professionals, focusing on quality solutions and client satisfaction.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
@@ -48,10 +48,10 @@ export function TimelineDemo() {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            SR Holding expanded its global reach and established partnerships with major enterprises including US Department of Defense, Freddie Mac, Mastercard, L3Harris, US Navy, Accenture, Microsoft, Google, Apple, Amazon, Meta, Tesla, Netflix, and Spotify.
+            SR Holding expanded its services and began working with small to medium-sized businesses and startups. We focused on building strong relationships with local and regional clients who needed reliable software solutions.
           </p>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            We launched our comprehensive software solutions portfolio including custom software development, machine learning & AI, blockchain technology, web application development, mobile app development, and database & infrastructure services.
+            We launched our core software solutions including custom software development, web application development, mobile app development, and database services to meet growing client demands.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
@@ -91,23 +91,23 @@ export function TimelineDemo() {
       content: (
         <div>
           <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            SR Holding was founded with a vision to transform businesses through innovative software solutions. We started with a small team of passionate developers and began our journey in Colombo, Sri Lanka.
+            SR Holding was founded with a vision to provide quality software solutions to businesses. We started with a small team of 3 passionate developers and began our journey focusing on local clients and small projects.
           </p>
           <div className="mb-8">
             <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Custom Software Development Services
+              Custom Software Development Services
             </div>
             <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Web Application Development
+              Web Application Development
             </div>
             <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Mobile App Development
+              Mobile App Development
             </div>
             <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Database & Infrastructure Solutions
+              Database & Infrastructure Solutions
             </div>
             <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ 24/7 Technical Support Services
+              24/7 Technical Support Services
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">

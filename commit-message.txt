@@ -1,0 +1,13 @@
+feat: Add comprehensive legal page with PDF download functionality
+
+- Create single legal page combining privacy policy, terms and conditions, and cookie policy
+- Add PDF download button with print functionality for legal documents
+- Include detailed information about third-party services (Vercel, Meta Pixel, Bunny, Formspree)
+- Update footer links to redirect to new legal page
+- Fix text visibility issues with black text on white background
+- Add print-specific CSS styles for proper PDF generation
+- Create separate client component for download button to resolve build errors
+- Include complete contact information for SR SOFTWARE HOLDING FZ LLC
+- Remove Twitter icon from footer social media links
+- Enhance FAQ section with white background and CTA section
+- Add Have other questions section with contact form redirect
