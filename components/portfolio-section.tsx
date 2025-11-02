@@ -61,6 +61,15 @@ const portfolioProjects: PortfolioProject[] = [
     tags: ["Почистване", "Premium", "Corporate", "Услуги"],
     category: "Услуги",
     link: "https://www.kcleanlux.eu/"
+  },
+  {
+    id: 6,
+    title: "BubbleChic.de - Plus Size Fashion",
+    description: "Онлайн магазин за мода в големи размери. Фамилно предприятие от 1995, специализирано в мода за дами в размери 44-60. E-commerce платформа с акцент върху стил, комфорт и разнообразие.",
+    image: "/projects/bubblechic.png",
+    tags: ["E-Commerce", "Fashion", "Plus Size", "Shopify"],
+    category: "E-Commerce",
+    link: "https://www.bubblechic.de/"
   }
 ]
 
