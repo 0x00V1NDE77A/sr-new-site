@@ -159,12 +159,6 @@ const DATA = {
       ],
     },
     {
-      title: 'FAQ Management',
-      url: '/admin/faqs',
-      icon: HelpCircle,
-      isActive: false,
-    },
-    {
       title: 'Admin Logs',
       url: '/admin/admin-logs',
       icon: Shield,
