@@ -153,7 +153,8 @@ const PortfolioSection = () => {
                   y: -8,
                   transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
                 }}
-                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 cursor-pointer"
+                onClick={() => project.link && window.open(project.link, '_blank', 'noopener,noreferrer')}
               >
                 {/* Featured Badge */}
                 {project.featured && (
