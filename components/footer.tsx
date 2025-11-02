@@ -53,8 +53,7 @@ export default function Footer() {
             </div>
             <p className="mb-6 text-sm leading-relaxed text-gray-300">
             SR Holding builds enduring businesses that deliver measurable value. From financial 
-            ecosystems to global supply chains, we empower growth and security. Trusted by governments, 
-            corporations, and institutions worldwide, SR is a partner across continents.
+            ecosystems to global supply chains, we empower growth and security.
             </p>
             <div className="flex space-x-4">
               {[
