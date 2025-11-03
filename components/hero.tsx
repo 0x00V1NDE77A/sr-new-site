@@ -65,7 +65,7 @@ const Hero = () => {
 
   return (
     <motion.section
-      className="relative flex items-center w-full min-h-screen pt-24 pb-12 overflow-hidden text-white bg-black sm:pt-16 sm:pb-16 md:py-20 lg:py-24 xl:py-32"
+      className="relative flex items-center w-full min-h-screen pt-24 pb-12 overflow-visible text-white bg-black sm:pt-16 sm:pb-16 md:py-20 lg:py-24 xl:py-32"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
