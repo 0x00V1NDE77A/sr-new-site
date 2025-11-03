@@ -128,7 +128,7 @@ export default function Navbar() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-lg font-semibold text-white">SR HOLDING</span>
+              <span className="text-lg font-semibold text-white"></span>
             </Link>
             <button
               onClick={() => setIsOpen(false)}
