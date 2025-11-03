@@ -88,9 +88,11 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col justify-between px-6 py-8 text-white bg-black">
+        <div className="fixed relative inset-0 z-50 flex flex-col justify-between px-6 py-8 text-white bg-black backdrop-blur-sm">
+          {/* Backdrop overlay for extra opacity */}
+          <div className="absolute inset-0 bg-black/95 -z-10"></div>
           {/* Header with Logo and Close Button */}
-          <div className="flex items-center justify-between">
+          <div className="relative z-10 flex items-center justify-between">
             <div className="origin-left transform scale-125">
               <Image
                 src="/logo.png"
@@ -109,7 +111,7 @@ export default function Navbar() {
           </div>
 
           {/* Centered Nav Links */}
-          <ul className="flex flex-col items-center justify-center flex-grow gap-6 text-lg font-semibold">
+          <ul className="relative z-10 flex flex-col items-center justify-center flex-grow gap-6 text-lg font-semibold">
             {links.map((link) => (
               <li key={link.name}>
                 <Link
@@ -125,7 +127,7 @@ export default function Navbar() {
           </ul>
 
           {/* Footer Section */}
-          <div className="space-y-3">
+          <div className="relative z-10 space-y-3">
             <button className="w-full py-3 font-medium text-black transition bg-white rounded-md hover:bg-gray-200">
               Contact a Specialist
             </button>

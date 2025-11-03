@@ -4,7 +4,7 @@ import React from 'react';
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-white border-b border-gray-200 relative overflow-hidden">
+    <header className="bg-white border-b border-gray-200 relative overflow-hidden pt-20 md:pt-8">
       {/* Animated background element */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-50 to-transparent transform -skew-x-12 -translate-x-full animate-shimmer"></div>
       <div className="max-w-6xl mx-auto px-6 py-8">
