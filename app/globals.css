@@ -87,16 +87,18 @@
     @apply bg-background text-foreground;
   }
   
-  /* Prevent horizontal scrolling */
-  html, body {
+  /* Prevent horizontal scrolling and smooth scrolling */
+  html {
     overflow-x: hidden;
     max-width: 100vw;
-  }
-  
-  /* Custom scrollbar styling - only one scrollbar */
-  html {
+    scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--muted-foreground)) transparent;
+  }
+  
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
   
   /* Webkit scrollbar (Chrome, Safari, Edge) */

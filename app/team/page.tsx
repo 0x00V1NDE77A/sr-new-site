@@ -77,6 +77,20 @@ export default function TeamPage() {
       }
     },
     {
+      name: "Sean Isa",
+      jobTitle: "CGO - Chief Growth Officer",
+      description: "Sean Isa is the Chief Growth Officer of SR Holding, leading strategic growth initiatives and driving business expansion across markets. He focuses on scaling operations and building strategic partnerships to accelerate company growth. Based in Sofia, Bulgaria.",
+      email: "sean.isa@srholding.org",
+      knowsAbout: ["Growth Strategy", "Business Expansion", "Strategic Partnerships", "Market Development", "Scaling Operations", "Business Growth"],
+      address: {
+        streetAddress: "Sofia",
+        addressLocality: "Sofia",
+        addressRegion: "Sofia",
+        postalCode: "1000",
+        addressCountry: "BG"
+      }
+    },
+    {
       name: "Carlos Garza",
       jobTitle: "Head of US Market Expansion",
       description: "With a deep understanding of transatlantic business dynamics, he bridges the gap between Europe and the US, driving strategic partnerships and market expansion. Based in Sofia, Bulgaria.",
@@ -92,10 +106,10 @@ export default function TeamPage() {
     },
     {
       name: "Anton Georgiev",
-      jobTitle: "Senior Full-Stack Developer",
-      description: "Anton Georgiev is a Senior Full-Stack Developer with deep expertise in building scalable, high-performance web applications from the ground up. Located in Sofia, Bulgaria.",
+      jobTitle: "CTO - Chief Technology Officer",
+      description: "Anton Georgiev is the Chief Technology Officer of SR Holding, leading all technology initiatives and overseeing the development of scalable, high-performance solutions. He brings deep expertise in building robust systems from the ground up. Located in Sofia, Bulgaria.",
       email: "anton.georgiev@srholding.org",
-      knowsAbout: ["Full-Stack Development", "Web Applications", "Scalable Systems", "High-Performance Computing", "Software Architecture", "Database Design"],
+      knowsAbout: ["Technology Leadership", "Software Architecture", "Scalable Systems", "High-Performance Computing", "Technical Strategy", "System Design"],
       address: {
         streetAddress: "Sofia",
         addressLocality: "Sofia",

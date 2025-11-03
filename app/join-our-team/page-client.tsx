@@ -96,6 +96,12 @@ const testimonials = [
     avatar: "/team3.png",
   },
   {
+    name: "Sean Isa",
+    role: "CGO-Chief Growth Officer",
+    quote:"Growth isn't just a metric—it's a mindset. Every opportunity is a step toward exponential impact.",
+    avatar: "/team7.jpg",
+  },
+  {
     name: "Carlos Garza",
     role: "Head of US Market Expansion",
     quote:"My job is simple: translate ambition across borders and turn global vision into local dominance",
@@ -103,8 +109,8 @@ const testimonials = [
   },
   {
     name: "Anton Georgiev",
-    role: "Senior Full-Stack Developer",
-    quote:"I don’t lower targets. I increase actions, follow process, and make the right calls when it counts.",
+    role: "CTO-Chief Technology Officer",
+    quote:"I don't lower targets. I increase actions, follow process, and make the right calls when it counts.",
     avatar: "/team5.jpeg",
   },
   {
