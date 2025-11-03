@@ -23,7 +23,7 @@ export default function Navbar() {
   // no hierarchical panels in the simplified version
 
   return (
-    <nav className="border-b bg-background border-border">
+    <nav className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-border">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-16 relative">
           {/* Logo - Absolute positioned left */}
