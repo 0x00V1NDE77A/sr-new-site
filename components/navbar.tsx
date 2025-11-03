@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import Image from "next/image"
 import Link from "next/link"
 import { Menu, X, ChevronRight } from "lucide-react"
@@ -42,6 +43,25 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [lastScrollY])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen])
+
+  // Handle portal mounting for mobile menu
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+    return () => setMounted(false)
+  }, [])
 
   return (
     <nav
@@ -86,54 +106,68 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
-      {isOpen && (
-        <div className="fixed relative inset-0 z-50 flex flex-col justify-between px-6 py-8 text-white bg-black backdrop-blur-sm">
-          {/* Backdrop overlay for extra opacity */}
-          <div className="absolute inset-0 bg-black/95 -z-10"></div>
+      {/* Mobile Drawer - Rendered via Portal */}
+      {isOpen && mounted && createPortal(
+        <div 
+          className="fixed inset-0 flex flex-col"
+          style={{ 
+            backgroundColor: '#000000',
+            zIndex: 9999,
+            opacity: 1
+          }}
+        >
           {/* Header with Logo and Close Button */}
-          <div className="relative z-10 flex items-center justify-between">
-            <div className="origin-left transform scale-125">
-              <Image
-                src="/logo.png"
-                alt="SR Logo"
-                width={45}
-                height={45}
-                className="object-contain"
-              />
-            </div>
+          <div className="flex items-center justify-between px-6 py-6">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="origin-left transform scale-125">
+                <Image
+                  src="/logo.png"
+                  alt="SR Logo"
+                  width={45}
+                  height={45}
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-lg font-semibold text-white">SR HOLDING</span>
+            </Link>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-gray-300 transition hover:text-white"
+              className="text-white transition hover:text-gray-300 focus:outline-none"
             >
               <X size={28} />
             </button>
           </div>
 
-          {/* Centered Nav Links */}
-          <ul className="relative z-10 flex flex-col items-center justify-center flex-grow gap-6 text-lg font-semibold">
-            {links.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between transition w-52 hover:text-gray-300"
-                >
-                  {link.name}
-                  <ChevronRight size={18} />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* Navigation Links */}
+          <div className="flex items-center justify-center flex-1 px-6">
+            <ul className="w-full space-y-0">
+              {links.map((link, index) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-between py-4 text-base font-semibold text-white transition-colors hover:text-gray-300"
+                  >
+                    <span>{link.name}</span>
+                    <ChevronRight size={18} className="text-white" />
+                  </Link>
+                  {index < links.length - 1 && (
+                    <hr className="border-gray-600" />
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Footer Section */}
-          <div className="relative z-10 space-y-3">
-            <button className="w-full py-3 font-medium text-black transition bg-white rounded-md hover:bg-gray-200">
+          <div className="px-6 pb-8 space-y-3">
+            <button className="w-full py-3 font-medium text-black transition-colors bg-white rounded-md hover:bg-gray-200">
               Contact a Specialist
             </button>
             <p className="text-xs text-center text-gray-400">Available 24/7</p>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </nav>
   )
