@@ -107,7 +107,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Drawer - Rendered via Portal */}
-      {isOpen && mounted && createPortal(
+      {isOpen && mounted ? createPortal(
         <div 
           className="fixed inset-0 flex flex-col"
           style={{ 
@@ -117,7 +117,7 @@ export default function Navbar() {
           }}
         >
           {/* Header with Logo and Close Button */}
-          <div className="flex items-center justify-between px-6 py-6">
+          <div className="flex items-center justify-between px-6 pt-6 pb-0">
             <Link href="/" className="flex items-center gap-2">
               <div className="origin-left transform scale-125">
                 <Image
@@ -139,7 +139,7 @@ export default function Navbar() {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex items-center justify-center flex-1 px-6">
+          <div className="px-6 pt-4">
             <ul className="w-full space-y-0">
               {links.map((link, index) => (
                 <li key={link.name}>
@@ -168,7 +168,7 @@ export default function Navbar() {
           </div>
         </div>,
         document.body
-      )}
+      ) : null}
     </nav>
   )
 }
