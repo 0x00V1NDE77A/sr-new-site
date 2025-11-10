@@ -67,26 +67,6 @@ const Hero = () => {
     },
   }
 
-  const buttonVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        delay: 1.5,
-        ease: baseEase,
-      },
-    },
-    hover: {
-      scale: 1.1,
-      transition: { duration: 0.2 },
-    },
-    tap: {
-      scale: 0.95,
-    },
-  }
-
   const scrollingText =
     "From custom software development to AI-powered solutions, SR Holding delivers innovative technology that transforms businesses and drives digital success."
   const words = scrollingText.split(" ")
@@ -144,48 +124,29 @@ const Hero = () => {
             className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-md lg:max-w-none font-light"
             variants={itemVariants}
           >
-            At SR Holding, we deliver cutting-edge software solutions including custom apps, 
-            machine learning systems, blockchain applications, and modern web platforms
+              At SR Holding, we believe that the strength of a group lies in its ability to adapt. 
           </motion.p>
         </motion.div>
 
-        {/* Middle Row: Executive Photos */}
-        <motion.div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" variants={itemVariants}>
+        {/* Middle Row: Executive Photo */}
+        <motion.div className="relative grid grid-cols-1 gap-4 md:gap-6" variants={itemVariants}>
           <motion.div
-            className="relative aspect-[3/4] md:aspect-[4/3] overflow-hidden rounded-xl shadow-2xl"
+            className="relative overflow-hidden rounded-xl shadow-2xl"
             variants={imageVariants}
             whileHover={{ scale: 1.02, y: -4 }}
             transition={{ duration: 0.4, ease: baseEase }}
           >
-            <div className="absolute inset-0 ring-1 ring-white/10 rounded-xl z-10" />
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ch1z75h78nc-g0UiVVTDaAm8bYo2P4jfDDfU8vPMYh.jpeg"
-              alt="SR Holding Executive"
-              fill
-              className="object-cover"
-            />
-          </motion.div>
-          <motion.div
-            className="relative aspect-[3/4] md:aspect-[4/3] overflow-hidden rounded-xl shadow-2xl"
-            variants={imageVariants}
-            whileHover={{ scale: 1.02, y: -4 }}
-            transition={{ duration: 0.4, ease: baseEase }}
-          >
-            <div className="absolute inset-0 ring-1 ring-white/10 rounded-xl z-10" />
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/yiyeydcnf1s-2WAvhljSACfGaKxlK7UOb0xT5rG7re.png"
-              alt="SR Holding Executive"
-              fill
-              className="object-cover"
-            />
-            <motion.button
-              className="absolute top-1/2 right-4 md:right-6 -translate-y-1/2 bg-white/15 backdrop-blur-xl p-3 md:p-4 rounded-full border border-white/20 shadow-lg hover:bg-white/25 transition-all duration-300"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <PlayIcon className="h-5 w-5 md:h-6 md:w-6 text-white fill-white drop-shadow-sm" />
-            </motion.button>
+            <div className="absolute inset-0 ring-1 ring-white/10 rounded-xl z-10 pointer-events-none" />
+            <div className="relative w-full">
+              <Image
+                src="/rusev.jpg"
+                alt="SR Holding Executive"
+                width={832}
+                height={572}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
           </motion.div>
         </motion.div>
 
@@ -263,10 +224,8 @@ const Hero = () => {
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
             >
-              <span className="text-sm md:text-base border-b border-transparent group-hover:border-white/50 transition-all duration-300">
-                Play Video
-              </span>
-              <PlayIcon className="h-4 w-4 md:h-5 md:w-5 group-hover:scale-110 transition-transform duration-200" />
+              
+              
             </motion.a>
           </motion.div>
         </motion.div>
