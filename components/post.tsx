@@ -37,7 +37,7 @@ export function Post({ _title, author, date, coverImage, body }: PostFragment) {
 
   return (
     <article>
-      <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl text-white">
+      <h1 className="mb-12 text-center text-5xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl text-white">
         {_title}
       </h1>
 
