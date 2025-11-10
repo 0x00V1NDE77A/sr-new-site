@@ -12,13 +12,10 @@ import Footer from "@/components/footer"
 export const dynamic = "force-dynamic"
 export const revalidate = 0
 
-const FALLBACK_BASE_URL = "https://srholding.org"
+const BASE_URL = "https://www.srholding.org"
 
 function resolveBaseUrl() {
-  return (
-    process.env.NEXT_PUBLIC_APP_URL ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : FALLBACK_BASE_URL)
-  )
+  return BASE_URL
 }
 
 // Fetch blog by slug from API

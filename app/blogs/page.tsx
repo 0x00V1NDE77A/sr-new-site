@@ -18,9 +18,7 @@ export const revalidate = 0
 async function getBlogs(page: number = 1, limit: number = 12) {
   try {
     // For server-side fetch, we need to use the full URL
-    const baseUrl =
-      process.env.NEXT_PUBLIC_APP_URL ||
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://srholding.org")
+    const baseUrl = "https://www.srholding.org"
     const url = new URL('/api/blogs', baseUrl)
     url.searchParams.set('page', page.toString())
     url.searchParams.set('limit', limit.toString())
