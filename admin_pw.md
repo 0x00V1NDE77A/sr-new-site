@@ -1,3 +1,3 @@
 Admin Credentials:
 Email: admin@srholding.org
-Password: SrHolding2024!@#
+Password: 1g:hfv9l*F0T@M{2b<*M
