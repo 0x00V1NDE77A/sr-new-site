@@ -12,11 +12,20 @@ import Footer from "@/components/footer"
 export const dynamic = "force-dynamic"
 export const revalidate = 0
 
+const FALLBACK_BASE_URL = "https://srholding.org"
+
+function resolveBaseUrl() {
+  return (
+    process.env.NEXT_PUBLIC_APP_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : FALLBACK_BASE_URL)
+  )
+}
+
 // Fetch blog by slug from API
 async function getBlogBySlug(slug: string) {
   try {
     // For server-side fetch, we need to use the full URL
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL 
+    const baseUrl = resolveBaseUrl()
     const url = new URL(`/api/blogs/${slug}`, baseUrl)
     
     const response = await fetch(url.toString(), {
@@ -46,7 +55,7 @@ async function getBlogBySlug(slug: string) {
 async function getRelatedBlogs(currentSlug: string, limit: number = 8) {
   try {
     // For server-side fetch, we need to use the full URL
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL 
+    const baseUrl = resolveBaseUrl()
     const url = new URL('/api/blogs', baseUrl)
     url.searchParams.set('limit', limit.toString())
     url.searchParams.set('sort', 'publishedAt')
@@ -147,7 +156,7 @@ function transformBlogForMoreStories(blog: any): PostMetaFragment {
 // Generate static params for all published blogs
 export async function generateStaticParams() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL 
+    const baseUrl = resolveBaseUrl()
     const url = new URL('/api/blogs/slugs', baseUrl)
     const response = await fetch(url.toString(), {
       method: 'GET',
