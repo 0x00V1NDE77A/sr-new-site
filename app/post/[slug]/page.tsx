@@ -257,7 +257,7 @@ export default async function PostPage({ params }: PageProps) {
       
       <Navbar />
       <main>
-        <section className="container px-5 mx-auto max-w-3xl">
+        <section className="mx-auto w-full px-3 sm:px-5 lg:px-0 lg:max-w-[66%]">
           <h2 className="mt-16 mb-16 text-2xl font-bold leading-tight tracking-tight md:mb-12 md:text-4xl md:tracking-tighter text-white">
             <Link href="/blogs" className="hover:underline text-white">
               Blog.
