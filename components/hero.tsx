@@ -99,7 +99,7 @@ const Hero = () => {
 
   return (
     <motion.section
-      className="bg-black text-white py-12 md:py-20 relative overflow-hidden"
+      className="bg-black text-white pt-24 pb-12 md:pt-24 md:pb-20 relative overflow-hidden"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -109,12 +109,12 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12 md:space-y-16 relative z-10">
         {/* Top Row: Header */}
         <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center" variants={itemVariants}>
-          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-[0.85] tracking-tight">
-            <motion.span className="block" variants={headingLineVariants}>
+          <div className="text-[clamp(2.5rem,6vw,3.5rem)] sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-[0.95] sm:leading-[0.85] tracking-tight text-balance">
+            <motion.span className="block break-words" variants={headingLineVariants}>
               Build with
             </motion.span>
             <motion.span
-              className="block text-white/95 ml-8 sm:ml-12 md:ml-16 lg:ml-20 mt-2 md:mt-3"
+              className="block text-white/95 ml-4 sm:ml-12 md:ml-16 lg:ml-20 mt-2 md:mt-3 break-words"
               variants={secondLineVariants}
             >
               SR Holding
