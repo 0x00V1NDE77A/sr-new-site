@@ -39,7 +39,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       headers: {
         'Content-Type': 'application/json',
       },
-      cache: 'no-store',
+      next: {
+        revalidate: 3600,
+      },
     })
 
     if (!response.ok) {

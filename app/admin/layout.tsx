@@ -8,6 +8,9 @@ import { RadixSidebarDemo } from "@/components/admin/sidebar"
 
 const inter = Inter({ subsets: ["latin"] })
 
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+
 export const metadata: Metadata = {
   title: "Admin Dashboard - SR Holding",
   description: "SR Holding Admin Dashboard",

@@ -1,5 +1,9 @@
 import { MetadataRoute } from 'next'
 
+export const runtime = 'nodejs'
+export const dynamic = 'force-static'
+export const revalidate = 3600
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'SR Holding - Software Development Company',

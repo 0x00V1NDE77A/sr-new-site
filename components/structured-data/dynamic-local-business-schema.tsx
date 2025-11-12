@@ -1,3 +1,4 @@
+import { getContactDetails } from '@/lib/contact-details'
 import { LocalBusinessSchema } from './local-business-schema'
 
 interface DynamicLocalBusinessSchemaProps {
@@ -31,27 +32,16 @@ export async function DynamicLocalBusinessSchema({
   fallbackData
 }: DynamicLocalBusinessSchemaProps) {
   try {
-    // Fetch contact details from your admin panel API
-    const baseUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000'
-    const response = await fetch(`${baseUrl}/api/contact-details`, {
-      cache: 'no-store' // Always get fresh data for SEO
-    })
+    const contactDetails = await getContactDetails({ fresh: true })
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch contact details')
+    if (!contactDetails) {
+      throw new Error('Contact details not found')
     }
-
-    const data = await response.json()
-    
-    if (!data.success || !data.data) {
-      throw new Error('Invalid contact details response')
-    }
-
-    const contactDetails = data.data
 
     // Parse address from the stored address string
     // Expected format: "Sofia, Bulgaria"
-    const addressParts = contactDetails.address.split(', ')
+    const addressString = contactDetails.address ?? ''
+    const addressParts = addressString.split(', ').filter(Boolean)
     const streetAddress = addressParts[0] || "Sofia" // Use city as street address
     const addressLocality = addressParts[0] || "Sofia"
     const addressRegion = addressLocality // Use city as region for Bulgaria
@@ -78,7 +68,7 @@ export async function DynamicLocalBusinessSchema({
         contactDetails.socialLinks.linkedin,
         contactDetails.socialLinks.twitter,
         contactDetails.socialLinks.facebook
-      ].filter(Boolean) : [
+      ].filter((link): link is string => Boolean(link)) : [
         "https://www.linkedin.com/company/sr-holding",
         "https://twitter.com/srholding",
         "https://www.facebook.com/srholding"
