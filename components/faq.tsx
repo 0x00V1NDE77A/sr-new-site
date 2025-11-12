@@ -7,7 +7,7 @@ export const FAQ = () => {
   const faqData = [
     {
       question: "What makes SR Holding different from other software companies?",
-      answer: "SR Holding combines cutting-edge technology expertise with deep industry knowledge. We specialize in custom software development, machine learning integration, blockchain solutions, and modern web applications. Our approach focuses on delivering scalable, secure, and innovative solutions that drive real business value."
+      answer: "SR Holding combines cutting-edge technology expertise with deep industry knowledge. We specialized in custom software development, machine learning integration, blockchain solutions, and modern web applications. Our approach focuses on delivering scalable, secure, and innovative solutions that drive real business value."
     },
     {
       question: "What types of software solutions do you develop?",
