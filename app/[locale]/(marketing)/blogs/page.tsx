@@ -8,7 +8,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { generateSEOMetadata } from '@/lib/seo'
 import type { Metadata } from "next"
-import { DEFAULT_LOCALE, type AppLocale, isAppLocale } from "@/lib/i18n/config"
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type AppLocale, isAppLocale } from "@/lib/i18n/config"
 import { getTranslations } from "next-intl/server"
 
 // No caching for now - easier testing
@@ -103,12 +103,16 @@ function transformBlogData(blog: any, locale: AppLocale, fallbacks: BlogFallback
   }
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
-  const { locale } = await params
+type RouteParams = {
+  params: { locale: string }
+}
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
+  const { locale } = params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const t = await getTranslations({ locale: normalizedLocale, namespace: 'Blogs.metadata' })
 
@@ -140,7 +144,7 @@ export async function generateMetadata({
 }
 
 type PageProps = {
-  params: Promise<{ locale: string }>
+  params: { locale: string }
   searchParams: { page?: string }
 }
 
@@ -148,7 +152,7 @@ export default async function Page({
   params,
   searchParams,
 }: PageProps) {
-  const { locale: localeParam } = await params
+  const { locale: localeParam } = params
   const locale: AppLocale = isAppLocale(localeParam) ? localeParam : DEFAULT_LOCALE
   const t = await getTranslations({ locale, namespace: 'Blogs' })
 

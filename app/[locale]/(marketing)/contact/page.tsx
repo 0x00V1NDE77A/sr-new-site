@@ -1,16 +1,20 @@
 import { ContactDetailsSection } from '@/components/contact-details-section'
 import { DynamicLocalBusinessSchema } from '@/components/structured-data/dynamic-local-business-schema'
-import { DEFAULT_LOCALE, isAppLocale, type AppLocale } from '@/lib/i18n/config'
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, isAppLocale, type AppLocale } from '@/lib/i18n/config'
 import { generateSEOMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
-  const { locale } = await params
+type RouteParams = {
+  params: { locale: string }
+}
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
+  const { locale } = params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const t = await getTranslations({ locale: normalizedLocale, namespace: 'Contact.metadata' })
 
@@ -44,12 +48,8 @@ export async function generateMetadata({
   }
 }
 
-type ContactPageProps = {
-  params: Promise<{ locale: string }>
-}
-
-export default async function ContactPage({ params }: ContactPageProps) {
-  const { locale } = await params
+export default async function ContactPage({ params }: RouteParams) {
+  const { locale } = params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const t = await getTranslations({ locale: normalizedLocale, namespace: 'Contact.structuredData' })
 

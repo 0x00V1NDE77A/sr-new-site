@@ -4,14 +4,18 @@ import Footer from '@/components/footer'
 import { generateSEOMetadata } from '@/lib/seo'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
-import { DEFAULT_LOCALE, type AppLocale, isAppLocale } from '@/lib/i18n/config'
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type AppLocale, isAppLocale } from '@/lib/i18n/config'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
-  const { locale } = await params
+type RouteParams = {
+  params: { locale: string }
+}
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
+  const { locale } = params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const metadataTranslations = await getTranslations({
     locale: normalizedLocale,
@@ -47,7 +51,11 @@ export async function generateMetadata({
   }
 }
 
-const AboutPage = () => {
+export default async function AboutPage({ params }: RouteParams) {
+  const { locale } = params
+  const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
+  // The TimelineDemo component handles its own translations client-side if needed.
+
   return (
     <>
       <Navbar />
@@ -56,5 +64,3 @@ const AboutPage = () => {
     </>
   )
 }
-
-export default AboutPage
