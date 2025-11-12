@@ -1,24 +1,40 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { createPortal } from "react-dom"
 import Image from "next/image"
 import Link from "next/link"
 import { Menu, X, ChevronRight } from "lucide-react"
+import { useLocale, useTranslations } from "next-intl"
+import { LanguageSwitcher } from "@/components/language-switcher"
+
+function createLocaleHref(locale: string, path: string) {
+  if (path === "/") {
+    return `/${locale}`
+  }
+  return `/${locale}${path.startsWith("/") ? path : `/${path}`}`
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [showNavbar, setShowNavbar] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const t = useTranslations("Navbar")
+  const locale = useLocale()
 
-  const links = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Team", href: "/team" },
-    { name: "Contact", href: "/contact" },
-    { name: "Blogs", href: "/blogs" },
-  ]
+  const links = useMemo(
+    () => [
+      { label: t("links.home"), href: "/" },
+      { label: t("links.services"), href: "/services" },
+      { label: t("links.about"), href: "/about" },
+      { label: t("links.team"), href: "/team" },
+      { label: t("links.contact"), href: "/contact" },
+      { label: t("links.blogs"), href: "/blogs" },
+    ],
+    [t]
+  )
+
+  const logoAlt = t("logoAlt")
 
   // Hide/show navbar on scroll
   useEffect(() => {
@@ -69,13 +85,13 @@ export default function Navbar() {
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="flex items-center justify-between px-6 mx-auto max-w-7xl">
+      <div className="flex items-center justify-between gap-6 px-6 mx-auto max-w-7xl">
         {/* Logo (larger without changing navbar height) */}
-        <Link href="/" className="flex items-center">
+        <Link href={createLocaleHref(locale, "/")} className="flex items-center">
           <div className="origin-left transform scale-125">
             <Image
               src="/logo.png"
-              alt="SR Logo"
+              alt={logoAlt}
               width={45}
               height={45}
               className="object-contain"
@@ -84,18 +100,22 @@ export default function Navbar() {
         </Link>
 
         {/* Centered Nav Links (Desktop) */}
-        <ul className="hidden md:flex gap-10 text-[15px] font-semibold justify-center w-full">
+        <ul className="hidden md:flex gap-10 text-[15px] font-semibold justify-center flex-1">
           {links.map((link) => (
-            <li key={link.name}>
+            <li key={link.label}>
               <Link
-                href={link.href}
+                href={createLocaleHref(locale, link.href)}
                 className="transition-colors duration-200 hover:text-gray-400"
               >
-                {link.name}
+                {link.label}
               </Link>
             </li>
           ))}
         </ul>
+
+        <div className="hidden md:flex flex-none items-center">
+          <LanguageSwitcher />
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -118,11 +138,11 @@ export default function Navbar() {
         >
           {/* Header with Logo and Close Button */}
           <div className="flex items-center justify-between px-6 pt-6 pb-0">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href={createLocaleHref(locale, "/")} className="flex items-center gap-2">
               <div className="origin-left transform scale-125">
                 <Image
                   src="/logo.png"
-                  alt="SR Logo"
+                  alt={logoAlt}
                   width={45}
                   height={45}
                   className="object-contain"
@@ -142,13 +162,13 @@ export default function Navbar() {
           <div className="px-6 pt-4">
             <ul className="w-full space-y-0">
               {links.map((link, index) => (
-                <li key={link.name}>
+                <li key={link.label}>
                   <Link
-                    href={link.href}
+                    href={createLocaleHref(locale, link.href)}
                     onClick={() => setIsOpen(false)}
                     className="flex items-center justify-between py-4 text-base font-semibold text-white transition-colors hover:text-gray-300"
                   >
-                    <span>{link.name}</span>
+                    <span>{link.label}</span>
                     <ChevronRight size={18} className="text-white" />
                   </Link>
                   {index < links.length - 1 && (
@@ -161,10 +181,13 @@ export default function Navbar() {
 
           {/* Footer Section */}
           <div className="px-6 pb-8 space-y-3">
+            <div className="flex justify-end">
+              <LanguageSwitcher align="right" />
+            </div>
             <button className="w-full py-3 font-medium text-black transition-colors bg-white rounded-md hover:bg-gray-200">
-              Contact a Specialist
+              {t("contactAction")}
             </button>
-            <p className="text-xs text-center text-gray-400">Available 24/7</p>
+            <p className="text-xs text-center text-gray-400">{t("availability")}</p>
           </div>
         </div>,
         document.body

@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 import clientPromise from "@/lib/mongodb"
 import type { BlogPost } from "@/lib/models/blog"
+import { DEFAULT_LOCALE, type AppLocale, isAppLocale } from "@/lib/i18n/config"
 
 // No caching for now - easier testing
 export const revalidate = 0
@@ -17,6 +18,8 @@ export async function GET(request: NextRequest) {
     const featured = searchParams.get("featured") === "true"
     const sort = searchParams.get("sort") || "publishedAt"
     const order = searchParams.get("order") === "asc" ? 1 : -1
+    const requestedLocale = searchParams.get("locale") || DEFAULT_LOCALE
+    const locale: AppLocale = isAppLocale(requestedLocale) ? requestedLocale : DEFAULT_LOCALE
 
     const client = await clientPromise
     const db = client.db()
@@ -58,12 +61,37 @@ export async function GET(request: NextRequest) {
         publishedAt: 1,
         readingTime: 1,
         views: 1,
-        featured: 1
+        featured: 1,
+        translations: 1,
+        seo: 1,
       })
       .toArray()
 
+    const localizedBlogs = blogs.map((blog) => {
+      const { translations, ...rest } = blog
+      const translation = translations?.[locale] ?? {}
+      const localizedSeo = {
+        ...rest.seo,
+        metaTitle: translation.seo?.metaTitle ?? rest.seo?.metaTitle,
+        metaDescription: translation.seo?.metaDescription ?? rest.seo?.metaDescription,
+        keywords: translation.seo?.keywords ?? rest.seo?.keywords,
+        socialTitle: translation.seo?.socialTitle ?? rest.seo?.socialTitle,
+        socialDescription: translation.seo?.socialDescription ?? rest.seo?.socialDescription,
+        socialImage: translation.seo?.socialImage ?? rest.seo?.socialImage,
+      }
+
+      return {
+        ...rest,
+        title: translation.title ?? rest.title,
+        slug: translation.slug ?? rest.slug,
+        excerpt: translation.excerpt ?? rest.excerpt,
+        heroImage: translation.heroImage ?? rest.heroImage,
+        seo: localizedSeo,
+      }
+    })
+
     return NextResponse.json({
-      blogs,
+      blogs: localizedBlogs,
       pagination: {
         page,
         limit,

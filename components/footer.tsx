@@ -4,9 +4,35 @@ import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from "lucide-react"
 import { FlipButton } from "@/components/animate-ui/buttons/flip"
 import Image from "next/image"
+import { useLocale, useTranslations } from "next-intl"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const t = useTranslations("Footer")
+  const locale = useLocale()
+
+  const quickLinks = [
+    t("quickLinks.item1"),
+    t("quickLinks.item2"),
+    t("quickLinks.item3"),
+    t("quickLinks.item4"),
+    t("quickLinks.item5"),
+  ]
+
+  const serviceDefs: Array<{ key: string; href: string }> = [
+    { key: "webDev", href: "/services/web-development" },
+    { key: "ai", href: "/services/ai-integration" },
+    { key: "blockchain", href: "/services/cybersecurity" },
+    { key: "webApps", href: "/services/web-development" },
+    { key: "mobile", href: "/services/mobile-apps" },
+  ]
+
+  const withLocale = (path: string) => {
+    if (!path || path.startsWith("http") || path.startsWith("#")) {
+      return path
+    }
+    return `/${locale}${path.startsWith("/") ? path : `/${path}`}`
+  }
 
   const footerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -52,20 +78,20 @@ export default function Footer() {
               />
             </div>
             <p className="mb-6 text-sm leading-relaxed text-gray-300">
-            SR Holding builds enduring businesses that deliver measurable value. From financial 
-            ecosystems to global supply chains, we empower growth and security.
+              {t("description")}
             </p>
             <div className="flex space-x-4">
               {[
-                { icon: Linkedin, href: "https://www.linkedin.com/company/sr-software-holding" },
-                { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61582549137239" },
-                { icon: Instagram, href: "https://www.instagram.com/sr.holding.ltd/" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/sr-software-holding", label: t("socialAlt.linkedin") },
+                { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61582549137239", label: t("socialAlt.facebook") },
+                { icon: Instagram, href: "https://www.instagram.com/sr.holding.ltd/", label: t("socialAlt.instagram") },
               ].map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={social.label}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center justify-center w-10 h-10 transition-all duration-300 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20"
@@ -78,71 +104,63 @@ export default function Footer() {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="mb-6 text-lg font-semibold">Quick Links</h4>
+            <h4 className="mb-6 text-lg font-semibold">{t("quickLinks.title")}</h4>
             <ul className="space-y-3">
-              {["The Firm", "What We Do", "News & Insights", "Financial Advisors", "Shareholders"].map(
-                (link, index) => (
-                  <li key={index}>
-                    <a href="#">
-                      <FlipButton
-                        frontText={link}
-                        backText="Learn More"
-                        className="h-auto p-2 text-sm"
-                        frontClassName="bg-transparent text-gray-300 hover:text-white"
-                        backClassName="bg-white text-black hover:bg-gray-100"
-                      />
-                    </a>
-                  </li>
-                ),
-              )}
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <a href="#">
+                    <FlipButton
+                      frontText={link}
+                      backText={t("quickLinks.cta")}
+                      className="h-auto p-2 text-sm"
+                      frontClassName="bg-transparent text-gray-300 hover:text-white"
+                      backClassName="bg-white text-black hover:bg-gray-100"
+                    />
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
           {/* Services */}
           <motion.div variants={itemVariants}>
-            <a href="/services" className="block mb-6 text-lg font-semibold transition-colors cursor-pointer hover:text-gray-300">Services</a>
+            <a href={withLocale("/services")} className="block mb-6 text-lg font-semibold transition-colors cursor-pointer hover:text-gray-300">
+              {t("services.title")}
+            </a>
             <ul className="space-y-3">
-              {[
-                { name: "Software Development", link: "/services/web-development" },
-                { name: "AI & Machine Learning", link: "/services/ai-integration" },
-                { name: "Blockchain Solutions", link: "/services/cybersecurity" },
-                { name: "Web Applications", link: "/services/web-development" },
-                { name: "Mobile Apps", link: "/services/mobile-apps" }
-              ].map(
-                (service, index) => (
-                  <li key={index}>
-                    <a href={service.link}>
-                      <FlipButton
-                        frontText={service.name}
-                        backText="Explore"
-                        className="h-auto p-2 text-sm"
-                        frontClassName="bg-transparent text-gray-300 hover:text-white"
-                        backClassName="bg-white text-black hover:bg-gray-100"
-                      />
-                    </a>
-                  </li>
-                ),
-              )}
+              {serviceDefs.map((service, index) => (
+                <li key={index}>
+                  <a href={withLocale(service.href)}>
+                    <FlipButton
+                      frontText={t(`services.labels.${service.key}`)}
+                      backText={t("services.cta")}
+                      className="h-auto p-2 text-sm"
+                      frontClassName="bg-transparent text-gray-300 hover:text-white"
+                      backClassName="bg-white text-black hover:bg-gray-100"
+                    />
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
-            <h4 className="mb-6 text-lg font-semibold">Contact Us</h4>
+            <h4 className="mb-6 text-lg font-semibold">{t("contact.title")}</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-gray-300">
-                  Sofia, Bulgaria
+                  {t("contact.address")}
                 </p>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="flex-shrink-0 w-5 h-5 text-gray-400" />
-                <p className="text-sm text-gray-300">+359878908741</p>
+                <p className="text-sm text-gray-300">{t("contact.phone")}</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="flex-shrink-0 w-5 h-5 text-gray-400" />
-                <p className="text-sm text-gray-300">hello@srholding.org</p>
+                <p className="text-sm text-gray-300">{t("contact.email")}</p>
               </div>
             </div>
           </motion.div>
@@ -153,13 +171,13 @@ export default function Footer() {
           variants={itemVariants}
           className="flex flex-col items-center justify-between pt-8 mt-12 space-y-4 border-t border-gray-800 md:flex-row md:space-y-0"
         >
-          <p className="text-sm text-gray-400">© {currentYear} SR Holding. All rights reserved.</p>
+          <p className="text-sm text-gray-400">{t("bottomBar.copy", { year: currentYear })}</p>
           <div className="flex space-x-6">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((link, index) => (
-              <a key={index} href="/legal">
+            {[t("bottomBar.privacy"), t("bottomBar.terms"), t("bottomBar.cookies")].map((link, index) => (
+              <a key={index} href={withLocale("/legal")}>
                 <FlipButton
                   frontText={link}
-                  backText="Read"
+                  backText={t("bottomBar.cta")}
                   className="h-auto p-2 text-sm"
                   frontClassName="bg-transparent text-gray-400 hover:text-white"
                   backClassName="bg-white text-black hover:bg-gray-100"
@@ -176,7 +194,7 @@ export default function Footer() {
         >
             <div className="ml-4 leading-relaxed text-gray-400">
             <p style={{ fontSize: '10px', fontWeight: '300', lineHeight: '1.5' }}>
-              This website and its contents are operated and administered by SR SOFTWARE HOLDING FZ LLC, a registered entity under the laws of the United Arab Emirates, with its principal office at 1034 Al Wasl Rd, Dubai, United Arab Emirates. The "SR" name and trademark are the exclusive intellectual property of SR SOFTWARE HOLDING Limited, 1182 Canton Rd, Hong Kong, used under strict proprietary rights. Unauthorized use, reproduction, or misrepresentation of any material from this website may result in civil and criminal liability to the fullest extent permitted by law. SR SOFTWARE HOLDING FZ LLC may conduct business through affiliated or associated entities, including but not limited to Bulgarian associates.
+              {t("legal")}
             </p>
           </div>
         </motion.div>

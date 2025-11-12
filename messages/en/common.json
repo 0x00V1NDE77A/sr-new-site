@@ -1,0 +1,1972 @@
+{
+  "Navbar": {
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "team": "Team",
+      "contact": "Contact",
+      "blogs": "Blogs"
+    },
+    "contactAction": "Contact a Specialist",
+    "availability": "Available 24/7",
+    "logoAlt": "SR Logo"
+  },
+  "Footer": {
+    "description": "SR Holding builds enduring businesses that deliver measurable value. From financial ecosystems to global supply chains, we empower growth and security.",
+    "socialAlt": {
+      "linkedin": "Follow SR Holding on LinkedIn",
+      "facebook": "Follow SR Holding on Facebook",
+      "instagram": "Follow SR Holding on Instagram"
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "item1": "The Firm",
+      "item2": "What We Do",
+      "item3": "News & Insights",
+      "item4": "Financial Advisors",
+      "item5": "Shareholders",
+      "cta": "Learn More"
+    },
+    "services": {
+      "title": "Services",
+      "labels": {
+        "webDev": "Software Development",
+        "ai": "AI & Machine Learning",
+        "blockchain": "Blockchain Solutions",
+        "webApps": "Web Applications",
+        "mobile": "Mobile Apps"
+      },
+      "cta": "Explore"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "Sofia, Bulgaria",
+      "phone": "+359878908741",
+      "email": "hello@srholding.org"
+    },
+    "bottomBar": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "cta": "Read",
+      "copy": "© {year} SR Holding. All rights reserved."
+    },
+    "legal": "This website and its contents are operated and administered by SR SOFTWARE HOLDING FZ LLC, a registered entity under the laws of the United Arab Emirates, with its principal office at 1034 Al Wasl Rd, Dubai, United Arab Emirates. The \"SR\" name and trademark are the exclusive intellectual property of SR SOFTWARE HOLDING Limited, 1182 Canton Rd, Hong Kong, used under strict proprietary rights. Unauthorized use, reproduction, or misrepresentation of any material from this website may result in civil and criminal liability to the fullest extent permitted by law. SR SOFTWARE HOLDING FZ LLC may conduct business through affiliated or associated entities, including but not limited to Bulgarian associates."
+  },
+  "Hero": {
+    "headingLine1": "Build with",
+    "headingLine2": "SR Holding",
+    "tagline": "At SR Holding, we believe that the strength of a group lies in its ability to adapt.",
+    "subheading": "Building innovative software solutions for your business",
+    "marquee": "From custom software development to AI-powered solutions, SR Holding delivers innovative technology that transforms businesses and drives digital success.",
+    "imageAlt": "SR Holding executive portrait"
+  },
+  "LanguageSwitcher": {
+    "label": "Language",
+    "locales": {
+      "en": "English",
+      "bg": "Bulgarian"
+    }
+  },
+  "Company": {
+    "sectionLabel": "THE COMPANY",
+    "title": "From small startup to big enterprise every client matters",
+    "scaleHeading": "Unmatched scale",
+    "scaleBody": "SR Holding's technology companies are headquartered in Bulgaria, Germany, and Dubai, where engineering talent meets business strategy.",
+    "cta": "Learn More",
+    "statsHeading": "Projects Delivered Successfully",
+    "statsNote": "All figures as of June 30, 2025, unless otherwise indicated.",
+    "statsNote2": "*As of March 31, 2025",
+    "cards": {
+      "infrastructure": {
+        "title": "IT Infrastructure Solutions",
+        "heading": "Build software infrastructure",
+        "body": "We deliver outstanding software solutions for enterprises by building secure, scalable applications with integrity and innovation.",
+        "imageAlt": "Modern server infrastructure with glowing lights representing secure IT systems"
+      },
+      "career": {
+        "title": "Tech Career Growth",
+        "heading": "Build your tech career",
+        "body": "We offer an environment where exceptional tech talent can build lasting careers and lead the next wave of innovation.",
+        "imageAlt": "IT professionals collaborating and advancing their careers in modern tech environment"
+      },
+      "digital": {
+        "title": "Digital Innovation",
+        "heading": "Build digital solutions",
+        "body": "We empower organisations with the tools and technologies they need to transform and grow through custom software development.",
+        "imageAlt": "Modern tech office representing innovative digital solutions and software development"
+      }
+    },
+    "mainImageAlt": "SR Holding executive portrait"
+  },
+  "About": {
+    "metadata": {
+      "title": "About Us - SR Holding | Sofia, Bulgaria",
+      "description": "Learn about SR Holding's journey, mission, and the talented team behind our innovative software solutions in Sofia, Bulgaria. Discover our commitment to excellence in technology.",
+      "keywords": "about SR Holding Sofia, software development team Bulgaria, company history Sofia, technology experts Bulgaria, software solutions Sofia",
+      "openGraphTitle": "About Us - SR Holding | Sofia, Bulgaria",
+      "openGraphDescription": "Learn about SR Holding's journey, mission, and the talented team behind our innovative software solutions in Sofia, Bulgaria.",
+      "path": "/about"
+    },
+    "timeline": {
+      "title": "SR Holding's Journey Through Time",
+      "subtitle": "We are a global partner in building industries, protecting assets, and shaping the future.",
+      "entries": [
+        {
+          "title": "2024",
+          "paragraphs": [
+            "SR Holding continues to grow with 50+ successful projects delivered and 25+ clients across key industries. Our team now includes 15+ software professionals dedicated to high-quality solutions and client satisfaction."
+          ],
+          "images": [
+            {
+              "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2134&q=80",
+              "alt": "Modern server infrastructure with glowing lights representing secure IT systems"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+              "alt": "IT professionals collaborating in a modern workspace"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+              "alt": "Modern tech office showcasing digital innovation"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+              "alt": "Software development team collaborating on a project"
+            }
+          ]
+        },
+        {
+          "title": "2023",
+          "paragraphs": [
+            "We expanded our services to support fast-growing startups and SMEs, building trusted partnerships with regional clients who needed reliable software expertise.",
+            "Our portfolio grew to include custom software development, web and mobile applications, and database engineering to match increasing client needs."
+          ],
+          "images": [
+            {
+              "src": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+              "alt": "Software engineers collaborating on innovative solutions"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2134&q=80",
+              "alt": "Secure cloud infrastructure in a modern data center"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+              "alt": "Technology specialists discussing a new product roadmap"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+              "alt": "Digital workspace focused on product innovation"
+            }
+          ]
+        },
+        {
+          "title": "2022",
+          "paragraphs": [
+            "SR Holding was founded with a mission to deliver dependable software solutions. We began as a team of three developers, partnering with local clients on tailored projects."
+          ],
+          "highlights": [
+            "Custom software development services",
+            "Web application development",
+            "Mobile app development",
+            "Database and infrastructure solutions",
+            "24/7 technical support services"
+          ],
+          "images": [
+            {
+              "src": "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+              "alt": "Startup development team collaborating in an open office"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2134&q=80",
+              "alt": "Reliable server infrastructure supporting enterprise software"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+              "alt": "Collaborative tech environment for product strategy"
+            },
+            {
+              "src": "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+              "alt": "Innovative workspace representing SR Holding's beginnings"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Blogs": {
+    "metadata": {
+      "title": "Blog - SR Holding",
+      "description": "Latest insights, tutorials, and updates from SR Holding on software development, AI solutions, blockchain technology, and modern web platforms.",
+      "keywords": "SR Holding blog, software development blog, AI technology blog, blockchain blog, web development insights, technology tutorials",
+      "openGraphTitle": "Blog - SR Holding",
+      "openGraphDescription": "Latest insights, tutorials, and updates from SR Holding on software development, AI solutions, and blockchain technology.",
+      "structuredDataTitle": "SR Holding Blog",
+      "structuredDataDescription": "Latest insights and updates from SR Holding on software development and technology.",
+      "path": "/blogs"
+    },
+    "intro": {
+      "title": "Blog.",
+      "description": "Latest insights and updates from SR Holding on software development, technology trends, and industry best practices."
+    },
+    "emptyState": {
+      "title": "No blog posts yet",
+      "description": "Check back soon for our latest insights, tutorials, and updates on technology and innovation."
+    },
+    "moreStoriesTitle": "More Stories",
+    "fallbacks": {
+      "untitled": "Untitled",
+      "unknownAuthor": "Unknown Author",
+      "noExcerpt": "No excerpt available",
+      "coverAlt": "Blog post"
+    }
+  },
+  "Portfolio": {
+    "title": "Portfolio",
+    "description": "Delivered projects that achieve measurable results. Explore our portfolio of successful software solutions and digital transformations.",
+    "featured": "Featured",
+    "viewProject": "View Project",
+    "categories": {
+      "promo": "Promo Campaign",
+      "finance": "Financial Services",
+      "corporate": "Corporate Services",
+      "ecommerce": "E-commerce",
+      "services": "Services"
+    },
+    "projects": {
+      "vitaminAqua": {
+        "title": "Vitamin Aqua x Novatrade – Grand Raffle",
+        "description": "Interactive promotional site with gamification mechanics and prize giveaways, including a MINI Cooper.",
+        "tags": "Promo Campaign|Interactive|UX/UI Design|Gamification"
+      },
+      "koronaCredit": {
+        "title": "Korona Credit",
+        "description": "Financial services platform with modern design, intuitive navigation, online application system, and loan calculator.",
+        "tags": "Finance|UX/UI Design|Responsive|SEO"
+      },
+      "ramConsult": {
+        "title": "RAM Consult",
+        "description": "Corporate website for an accounting firm with over 25 years of experience, highlighting accounting, tax, and legal expertise.",
+        "tags": "Accounting|Corporate|Professional|SEO"
+      },
+      "maxiFashion": {
+        "title": "Maxi Fashion – Inspiration in Plus Sizes",
+        "description": "E-commerce experience for the leading plus-size fashion brand, reflecting its identity, style, and tailored collections.",
+        "tags": "E-commerce|Fashion|Plus Size|Online Store"
+      },
+      "kclean": {
+        "title": "KCLEAN – Luxury Cleaning Without Compromise",
+        "description": "Premium service site focused on quality, style, and satisfied clients, trusted by leading corporate partners.",
+        "tags": "Cleaning|Premium|Corporate|Services"
+      },
+      "bubbleChic": {
+        "title": "BubbleChic.de – Plus Size Fashion",
+        "description": "Online fashion store for sizes 44-60, offering stylish and comfortable collections from a family business founded in 1995.",
+        "tags": "E-commerce|Fashion|Plus Size|Shopify"
+      }
+    },
+    "projectMeta": {
+      "vitaminAqua": { "category": "promo", "link": "https://www.vitaminaqua.bg/", "featured": true },
+      "koronaCredit": { "category": "finance", "link": "#", "featured": false },
+      "ramConsult": { "category": "corporate", "link": "#", "featured": false },
+      "maxiFashion": { "category": "ecommerce", "link": "#", "featured": false },
+      "kclean": { "category": "services", "link": "https://www.kcleanlux.eu/", "featured": false },
+      "bubbleChic": { "category": "ecommerce", "link": "https://www.bubblechic.de/", "featured": false }
+    },
+    "cta": {
+      "title": "Ready to start your project?",
+      "description": "Join our portfolio of successful clients. Let's discuss how we can bring your vision to life with cutting-edge technology solutions.",
+      "start": "Start a Project",
+      "viewAll": "View All Projects"
+    }
+  },
+  "HeroParallax": {
+    "heading": "We create software<br/>that makes you sell more",
+    "description": "We build beautiful products using the latest technologies and frameworks. Our team of passionate developers and designers turns ambitious ideas into high-impact digital experiences.",
+    "products": {
+      "moonbeam": "Moonbeam",
+      "cursor": "Cursor",
+      "rogue": "Rogue",
+      "editorially": "Editorially",
+      "editrix": "Editrix AI",
+      "pixelPerfect": "Pixel Perfect",
+      "algochurn": "Algochurn",
+      "aceternity": "Aceternity UI",
+      "tailwindKit": "Tailwind Master Kit",
+      "smartbridge": "SmartBridge",
+      "renderwork": "Renderwork Studio",
+      "creme": "Creme Digital",
+      "goldenBells": "Golden Bells Academy",
+      "invoker": "Invoker Labs",
+      "efreeInvoice": "E Free Invoice"
+    }
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "iconLabel": "FAQ",
+    "subtitle": "Learn more about SR Holding's software development services and technology solutions.",
+    "ctaTitle": "Have other questions?",
+    "ctaDescription": "Can't find what you're looking for? Our team is here to help with any questions about our software development services.",
+    "contactCta": "Contact Us",
+    "fallback": {
+      "faq1": {
+        "question": "What software services does SR Holding offer?",
+        "answer": "We provide end-to-end software development services including web platforms, mobile applications, cloud solutions, AI integrations, and digital transformation consulting."
+      },
+      "faq2": {
+        "question": "How can I contact SR Holding about a project?",
+        "answer": "Reach out via our contact form, email hello@srholding.org, or call +359878908741. We'll review your requirements and propose the best solution."
+      },
+      "faq3": {
+        "question": "Do you work with startups as well as enterprises?",
+        "answer": "Yes. We partner with startups, scale-ups, and global enterprises, tailoring engagement models to project size, goals, and budget."
+      },
+      "faq4": {
+        "question": "What sets SR Holding apart?",
+        "answer": "We combine cutting-edge engineering, strategic consulting, and long-term partnerships. Our teams deliver secure, scalable products and provide continuous support."
+      },
+      "faq5": {
+        "question": "Do you develop mobile applications?",
+        "answer": "Absolutely. We build native and cross-platform mobile apps—from strategy and design to development and maintenance."
+      }
+    }
+  },
+  "Contact": {
+    "metadata": {
+      "title": "Contact Us - SR Holding",
+      "description": "Get in touch with SR Holding for custom software development, AI solutions, and technology consulting.",
+      "keywords": "contact SR Holding, software development contact, technology consulting, custom software solutions, AI development contact",
+      "openGraphTitle": "Contact Us - SR Holding",
+      "openGraphDescription": "Get in touch with SR Holding for custom software development, AI solutions, and technology consulting.",
+      "path": "/contact"
+    },
+    "structuredData": {
+      "description": "Leading software development company specializing in custom applications, AI solutions, blockchain technology, and modern web platforms.",
+      "openingHours": "Mo-Su 00:00-23:59"
+    },
+    "header": {
+      "title": "Have a question?",
+      "description": "We're here to help. Reach us via form, email, or phone—SR Holding's customer team is available 24/7 and responds within one business day."
+    },
+    "info": {
+      "title": "Contact Information"
+    },
+    "contactDetails": {
+      "defaultPhone": "+359878908741",
+      "defaultEmail": "hello@srholding.org",
+      "defaultAddress": "Bulgaria, Sofia"
+    },
+    "form": {
+      "firstNameLabel": "First name",
+      "lastNameLabel": "Last name",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone number (optional)",
+      "topicLabel": "Select your topic",
+      "topicPlaceholder": "Choose a topic...",
+      "topics": {
+        "generalInquiry": "General inquiry",
+        "technicalSupport": "Technical support",
+        "businessPartnership": "Business partnership",
+        "careerOpportunities": "Career opportunities",
+        "other": "Other"
+      },
+      "messageLabel": "Message",
+      "messagePlaceholder": "Please describe your inquiry or project requirements...",
+      "submitStates": {
+        "idle": "Submit",
+        "submitting": "Submitting..."
+      }
+    },
+    "feedback": {
+      "successTitle": "Message sent successfully!",
+      "successMessage": "Thank you for your message. We'll respond within 24 business hours.",
+      "dismiss": "Dismiss",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "JoinTeam": {
+    "metadata": {
+      "title": "Join Our Team - SR Holding",
+      "description": "Explore career opportunities at SR Holding and build groundbreaking software with a high-impact global team.",
+      "keywords": "SR Holding careers, software development jobs, AI careers, technology jobs, join our team",
+      "openGraphTitle": "Join Our Team - SR Holding",
+      "openGraphDescription": "Discover career opportunities at SR Holding and grow with a team that is shaping the future of technology.",
+      "path": "/join-our-team"
+    },
+    "hero": {
+      "badge": "We're hiring",
+      "titlePrimary": "Join Our",
+      "titleSecondary": "Revolution",
+      "description": "Be part of a team that's reshaping the future of technology. When innovation meets passion, every idea can change the world.",
+      "primaryCta": "View open positions",
+      "secondaryCta": "Learn about our culture"
+    },
+    "whyChoose": {
+      "title": "Why Choose SR Holdings?",
+      "description": "We're not just building software—we're crafting the future. Join a team where your ideas matter and your growth is limitless."
+    },
+    "features": [
+      {
+        "title": "Innovation first",
+        "description": "Work with cutting-edge technologies and push the boundaries of what's possible.",
+        "stats": "50+ patents filed"
+      },
+      {
+        "title": "Mission driven",
+        "description": "Every line of code contributes to solving real-world problems at global scale.",
+        "stats": "10M+ users impacted"
+      },
+      {
+        "title": "Excellence recognized",
+        "description": "Industry-leading team celebrated for technical innovation and leadership.",
+        "stats": "15+ awards won"
+      },
+      {
+        "title": "Rapid growth",
+        "description": "Join a fast-scaling company with unlimited potential and opportunities.",
+        "stats": "300% growth YoY"
+      }
+    ],
+    "offerHeading": "What we offer",
+    "benefits": [
+      {
+        "title": "Health & wellness",
+        "description": "Comprehensive health insurance, mental health support, and wellness programs."
+      },
+      {
+        "title": "Growth opportunities",
+        "description": "Continuous learning budget, conference attendance, and career development paths."
+      },
+      {
+        "title": "Work-life balance",
+        "description": "Flexible hours, remote work options, and an unlimited PTO policy."
+      },
+      {
+        "title": "Global impact",
+        "description": "Build products used worldwide and make a measurable difference."
+      }
+    ],
+    "testimonialsHeading": "Hear from our team",
+    "testimonialsDescription": "Discover what makes SR Holdings an extraordinary place to work—straight from the people who power our success.",
+    "testimonials": [
+      {
+        "name": "Rusi Russev",
+        "role": "CEO — Chief Executive Officer",
+        "quote": "I don't guess. I engineer.",
+        "avatar": "/images/executive-2.png"
+      },
+      {
+        "name": "Slavi Kolev",
+        "role": "COO — Chief Operating Officer",
+        "quote": "People talk about scaling. I talk about taking over.",
+        "avatar": "/images/executive-1.jpeg"
+      },
+      {
+        "name": "Marin Nikolov",
+        "role": "CSO — Chief Sales Officer",
+        "quote": "Sell the vision, not the product. People buy belief and emotion.",
+        "avatar": "/team3.png"
+      },
+      {
+        "name": "Sean Isa",
+        "role": "CGO — Chief Growth Officer",
+        "quote": "Growth isn't just a metric—it's a mindset. Every opportunity fuels exponential impact.",
+        "avatar": "/team7.jpg"
+      },
+      {
+        "name": "Carlos Garza",
+        "role": "Head of US Market Expansion",
+        "quote": "My job is simple: translate ambition across borders and turn global vision into local dominance.",
+        "avatar": "/team4.jpg"
+      },
+      {
+        "name": "Anton Georgiev",
+        "role": "CTO — Chief Technology Officer",
+        "quote": "I don't lower targets. I increase actions, follow process, and make the right calls when it counts.",
+        "avatar": "/team5.jpeg"
+      },
+      {
+        "name": "Stoyan Tanev",
+        "role": "Sales Representative",
+        "quote": "I don't just close deals—I build relationships that turn bold ideas into real-world success stories.",
+        "avatar": "/team6.jpg"
+      }
+    ],
+    "positionsHeading": "Open positions",
+    "positionsDescription": "Find the role that matches your ambition. We're always excited to meet exceptional talent.",
+    "openPositions": [
+      {
+        "id": "seniorFullStack",
+        "title": "Senior Full Stack Developer",
+        "department": "Engineering",
+        "location": "Remote / San Francisco",
+        "type": "Full-time",
+        "description": "Build scalable web applications using React, Node.js, and modern cloud technologies.",
+        "salary": "$120k - $180k",
+        "schema": {
+          "description": "Build scalable web applications using React, Node.js, and modern cloud technologies. Work with a talented team to create innovative software solutions that impact millions of users worldwide.",
+          "datePosted": "2024-01-15",
+          "validThrough": "2024-12-31",
+          "employmentType": "FULL_TIME",
+          "jobLocation": {
+            "addressLocality": "San Francisco",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          },
+          "baseSalary": {
+            "currency": "USD",
+            "minValue": 120000,
+            "maxValue": 180000
+          },
+          "workHours": "40 hours per week",
+          "benefits": [
+            "Comprehensive health insurance",
+            "Mental health support",
+            "Wellness programs",
+            "Continuous learning budget",
+            "Conference attendance",
+            "Career development paths",
+            "Flexible hours",
+            "Remote work options",
+            "Unlimited PTO policy"
+          ],
+          "qualifications": [
+            "Bachelor's degree in Computer Science or related field",
+            "5+ years of full-stack development experience",
+            "Strong proficiency in React, Node.js, and TypeScript",
+            "Experience with cloud platforms (AWS, Azure, or GCP)",
+            "Knowledge of modern development practices and tools"
+          ],
+          "responsibilities": [
+            "Design and develop scalable web applications",
+            "Collaborate with cross-functional teams",
+            "Write clean, maintainable, and efficient code",
+            "Participate in code reviews and technical discussions",
+            "Mentor junior developers"
+          ],
+          "skills": [
+            "React",
+            "Node.js",
+            "TypeScript",
+            "AWS",
+            "Docker",
+            "Kubernetes",
+            "MongoDB",
+            "PostgreSQL"
+          ],
+          "educationRequirements": "Bachelor's degree in Computer Science or related field",
+          "experienceRequirements": "5+ years of full-stack development experience"
+        }
+      },
+      {
+        "id": "productDesigner",
+        "title": "Product Designer",
+        "department": "Design",
+        "location": "Remote / New York",
+        "type": "Full-time",
+        "description": "Design intuitive experiences for our next-generation software products.",
+        "salary": "$100k - $150k",
+        "schema": {
+          "description": "Design intuitive user experiences for our next-generation software products. Work closely with engineering and product teams to create beautiful, functional interfaces that users love.",
+          "datePosted": "2024-01-15",
+          "validThrough": "2024-12-31",
+          "employmentType": "FULL_TIME",
+          "jobLocation": {
+            "addressLocality": "New York",
+            "addressRegion": "NY",
+            "addressCountry": "US"
+          },
+          "baseSalary": {
+            "currency": "USD",
+            "minValue": 100000,
+            "maxValue": 150000
+          },
+          "workHours": "40 hours per week",
+          "benefits": [
+            "Comprehensive health insurance",
+            "Mental health support",
+            "Wellness programs",
+            "Continuous learning budget",
+            "Conference attendance",
+            "Career development paths",
+            "Flexible hours",
+            "Remote work options",
+            "Unlimited PTO policy"
+          ],
+          "qualifications": [
+            "Bachelor's degree in Design or related field",
+            "3+ years of product design experience",
+            "Proficiency in Figma, Sketch, or Adobe Creative Suite",
+            "Strong portfolio demonstrating UX/UI design skills",
+            "Experience with user research and testing"
+          ],
+          "responsibilities": [
+            "Design user interfaces and experiences",
+            "Conduct user research and usability testing",
+            "Create wireframes, prototypes, and design systems",
+            "Collaborate with product and engineering teams",
+            "Present design concepts to stakeholders"
+          ],
+          "skills": [
+            "Figma",
+            "Sketch",
+            "Adobe Creative Suite",
+            "User research",
+            "Prototyping",
+            "Design systems",
+            "HTML",
+            "CSS"
+          ],
+          "educationRequirements": "Bachelor's degree in Design or related field",
+          "experienceRequirements": "3+ years of product design experience"
+        }
+      },
+      {
+        "id": "devopsEngineer",
+        "title": "DevOps Engineer",
+        "department": "Infrastructure",
+        "location": "Remote / Austin",
+        "type": "Full-time",
+        "description": "Manage and scale our cloud infrastructure to support millions of users.",
+        "salary": "$110k - $160k",
+        "schema": {
+          "description": "Manage and scale our cloud infrastructure to support millions of users. Implement CI/CD pipelines, monitor system performance, and ensure high availability of our services.",
+          "datePosted": "2024-01-15",
+          "validThrough": "2024-12-31",
+          "employmentType": "FULL_TIME",
+          "jobLocation": {
+            "addressLocality": "Austin",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+          },
+          "baseSalary": {
+            "currency": "USD",
+            "minValue": 110000,
+            "maxValue": 160000
+          },
+          "workHours": "40 hours per week",
+          "benefits": [
+            "Comprehensive health insurance",
+            "Mental health support",
+            "Wellness programs",
+            "Continuous learning budget",
+            "Conference attendance",
+            "Career development paths",
+            "Flexible hours",
+            "Remote work options",
+            "Unlimited PTO policy"
+          ],
+          "qualifications": [
+            "Bachelor's degree in Computer Science or related field",
+            "4+ years of DevOps or infrastructure experience",
+            "Strong experience with AWS, Docker, and Kubernetes",
+            "Knowledge of CI/CD pipelines and automation tools",
+            "Experience with monitoring and logging systems"
+          ],
+          "responsibilities": [
+            "Manage cloud infrastructure and services",
+            "Implement and maintain CI/CD pipelines",
+            "Monitor system performance and availability",
+            "Automate deployment and scaling processes",
+            "Ensure security and compliance standards"
+          ],
+          "skills": [
+            "AWS",
+            "Docker",
+            "Kubernetes",
+            "Jenkins",
+            "Terraform",
+            "Monitoring",
+            "Linux",
+            "Python",
+            "Bash"
+          ],
+          "educationRequirements": "Bachelor's degree in Computer Science or related field",
+          "experienceRequirements": "4+ years of DevOps or infrastructure experience"
+        }
+      }
+    ],
+    "positionsCta": {
+      "apply": "Apply now",
+      "notListed": "Don't see the perfect role? We'd still love to hear from you.",
+      "resumeCta": "Send us your resume"
+    },
+    "closing": {
+      "heading": "Ready to start?",
+      "description": "Take the first step toward an extraordinary career. We can't wait to meet you.",
+      "form": {
+        "nameLabel": "Full name",
+        "namePlaceholder": "Your full name",
+        "emailLabel": "Email address",
+        "emailPlaceholder": "your.email@example.com",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Tell us about yourself and why you'd like to join our team...",
+        "submit": "Send message"
+      }
+    }
+  },
+  "Team": {
+    "metadata": {
+      "title": "Our Team - SR Holding",
+      "description": "Meet the leaders, strategists, and engineers who power SR Holding's innovation across Sofia and beyond.",
+      "keywords": "SR Holding team, leadership, software experts, technology specialists, Sofia Bulgaria",
+      "openGraphTitle": "Our Team - SR Holding",
+      "openGraphDescription": "Get to know the SR Holding team of technology leaders, strategists, and innovators.",
+      "path": "/team"
+    },
+    "header": {
+      "title": "Our Team",
+      "description": "Meet the people who transform bold ideas into high-impact technology."
+    },
+    "overlayLabel": "Our team members",
+    "join": {
+      "title": "Ready to join our team?",
+      "description": "We're always looking for talented people who share our vision for innovation and excellence. Explore open roles and help build what's next.",
+      "cta": "Join our team"
+    },
+    "members": [
+      {
+        "id": 1,
+        "name": "Rusi Russev",
+        "role": "CEO — Chief Executive Officer",
+        "bio": "Rusi leads SR Holding's technical operations and engineering teams, rapidly turning complex concepts into scalable platforms.",
+        "image": "/images/executive-2.png",
+        "linkedin": "https://www.linkedin.com/in/rusirussev",
+        "email": "rusi.russev@srholding.org",
+        "schema": {
+          "jobTitle": "CEO — Chief Executive Officer",
+          "description": "Chief Executive Officer overseeing technical vision, delivery, and innovation at SR Holding.",
+          "knowsAbout": ["Leadership", "Technical Operations", "Strategic Planning", "Team Management", "Software Development", "Business Strategy"],
+          "address": {
+            "streetAddress": "Sofia",
+            "addressLocality": "Sofia",
+            "addressRegion": "Sofia",
+            "postalCode": "1000",
+            "addressCountry": "BG"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Slavi Kolev",
+        "role": "COO — Chief Operating Officer",
+        "bio": "Slavi drives operational excellence, product vision, and strategic partnerships across SR Holding's fast-scaling portfolio.",
+        "image": "/images/executive-1.jpeg",
+        "linkedin": "https://www.linkedin.com/in/slavi-kolev-939284350/",
+        "email": "slavi.kolev@srholding.org",
+        "schema": {
+          "jobTitle": "COO — Chief Operating Officer",
+          "description": "Chief Operating Officer guiding operations, product direction, and partnerships for SR Holding.",
+          "knowsAbout": ["Operations Management", "Strategic Planning", "Product Vision", "Partnership Development", "Automotive Technology", "Fintech Solutions"],
+          "address": {
+            "streetAddress": "Sofia",
+            "addressLocality": "Sofia",
+            "addressRegion": "Sofia",
+            "postalCode": "1000",
+            "addressCountry": "BG"
+          }
+        }
+      },
+      {
+        "id": 3,
+        "name": "Marin Nikolov",
+        "role": "CSO — Chief Sales Officer",
+        "bio": "Marin combines creative strategy and commercial leadership to grow SR Holding's global client partnerships.",
+        "image": "/team3.png",
+        "linkedin": "https://www.linkedin.com/in/marin-nikolov-3095a7200/",
+        "email": "marin.nikolov@srholding.org",
+        "schema": {
+          "jobTitle": "CSO — Chief Sales Officer",
+          "description": "Chief Sales Officer expanding SR Holding's revenue growth and market presence.",
+          "knowsAbout": ["Sales Strategy", "Business Development", "Creative Solutions", "Client Relations", "Market Expansion", "Strategic Partnerships"],
+          "address": {
+            "streetAddress": "Sofia",
+            "addressLocality": "Sofia",
+            "addressRegion": "Sofia",
+            "postalCode": "1000",
+            "addressCountry": "BG"
+          }
+        }
+      },
+      {
+        "id": 4,
+        "name": "Sean Isa",
+        "role": "CGO — Chief Growth Officer",
+        "bio": "Sean leads growth strategy, scaling operations and unlocking new markets to accelerate SR Holding's expansion.",
+        "image": "/team7.jpg",
+        "linkedin": "https://www.linkedin.com/in/sean-isa-44445a165/",
+        "email": "sean.isa@srholding.org",
+        "schema": {
+          "jobTitle": "CGO — Chief Growth Officer",
+          "description": "Chief Growth Officer responsible for market expansion, partnerships, and growth initiatives.",
+          "knowsAbout": ["Growth Strategy", "Business Expansion", "Strategic Partnerships", "Market Development", "Scaling Operations", "Business Growth"],
+          "address": {
+            "streetAddress": "Sofia",
+            "addressLocality": "Sofia",
+            "addressRegion": "Sofia",
+            "postalCode": "1000",
+            "addressCountry": "BG"
+          }
+        }
+      },
+      {
+        "id": 5,
+        "name": "Carlos Garza",
+        "role": "Head of US Market Expansion",
+        "bio": "Carlos bridges European and US markets, forging partnerships and tailored go-to-market strategies for SR Holding.",
+        "image": "/team4.jpg",
+        "linkedin": "",
+        "email": "carlos.garza@srholding.org",
+        "schema": {
+          "jobTitle": "Head of US Market Expansion",
+          "description": "Leader of SR Holding's US market entry, partnerships, and transatlantic growth strategy.",
+          "knowsAbout": ["Market Expansion", "International Business", "Strategic Partnerships", "US Market", "Transatlantic Relations", "Business Development"],
+          "address": {
+            "streetAddress": "Sofia",
+            "addressLocality": "Sofia",
+            "addressRegion": "Sofia",
+            "postalCode": "1000",
+            "addressCountry": "BG"
+          }
+        }
+      },
+      {
+        "id": 6,
+        "name": "Anton Georgiev",
+        "role": "CTO — Chief Technology Officer",
+        "bio": "Anton architects the technology vision, building high-performance systems and leading engineering excellence at SR Holding.",
+        "image": "/team5.jpeg",
+        "linkedin": "https://www.linkedin.com/in/anton-georgiev-33b52a194/",
+        "email": "anton.georgiev@srholding.org",
+        "schema": {
+          "jobTitle": "CTO — Chief Technology Officer",
+          "description": "Chief Technology Officer overseeing architecture, scalable systems, and innovation programs.",
+          "knowsAbout": ["Technology Leadership", "Software Architecture", "Scalable Systems", "High-Performance Computing", "Technical Strategy", "System Design"],
+          "address": {
+            "streetAddress": "Sofia",
+            "addressLocality": "Sofia",
+            "addressRegion": "Sofia",
+            "postalCode": "1000",
+            "addressCountry": "BG"
+          }
+        }
+      },
+      {
+        "id": 7,
+        "name": "Stoyan Tanev",
+        "role": "Sales Representative",
+        "bio": "Stoyan builds long-term relationships, guiding clients through every stage of SR Holding's delivery lifecycle.",
+        "image": "/team6.jpg",
+        "linkedin": "",
+        "email": "stoyan.tanev@srholding.org",
+        "schema": {
+          "jobTitle": "Sales Representative",
+          "description": "Sales representative focused on client partnerships and tailored technology solutions at SR Holding.",
+          "knowsAbout": ["Sales", "Client Relations", "Business Development", "Creative Solutions", "Customer Service", "Market Research"],
+          "address": {
+            "streetAddress": "Sofia",
+            "addressLocality": "Sofia",
+            "addressRegion": "Sofia",
+            "postalCode": "1000",
+            "addressCountry": "BG"
+          }
+        }
+      }
+    ]
+  },
+  "Services": {
+    "metadata": {
+      "title": "Services - SR Holding",
+      "description": "Comprehensive software development services covering web platforms, mobile apps, AI integration, data infrastructure, and cybersecurity.",
+      "keywords": "services SR Holding, software development services, web development, mobile apps, AI integration, data engineering, cybersecurity",
+      "openGraphTitle": "Services - SR Holding",
+      "openGraphDescription": "Explore SR Holding's full-service capabilities—from product strategy and engineering to support and security.",
+      "path": "/services"
+    },
+    "hero": {
+      "titleLine1": "Our",
+      "titleLine2": "Services",
+      "description": "SR Software and SR Web deliver end-to-end digital transformation—enterprise platforms, AI & automation, mobile, web, and cloud infrastructure.",
+      "cta": "Explore our solutions"
+    },
+    "grid": {
+      "heading": "Our Services",
+      "description": "We design and build digital experiences that accelerate growth through modern technology and exceptional user journeys.",
+      "cta": "Learn more",
+      "closingHeading": "Ready to start your project?",
+      "closingDescription": "Let's discuss how we can help bring your vision to life with our expertise.",
+      "closingLabel": "Get in touch",
+      "services": [
+        {
+          "id": "web",
+          "title": "Web Development",
+          "subtitle": "Modern, scalable web applications",
+          "description": "High-performance web platforms built with modern frameworks, engineered for scalability and maintainability.",
+          "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "href": "/services/web-development",
+          "features": [
+            "React & Next.js applications",
+            "TypeScript development",
+            "API design & integration",
+            "Performance optimization",
+            "Responsive UX/UI"
+          ]
+        },
+        {
+          "id": "mobile",
+          "title": "Mobile Development",
+          "subtitle": "Native & cross-platform apps",
+          "description": "Create powerful mobile experiences across iOS and Android with native and cross-platform tooling.",
+          "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "href": "/services/mobile-apps",
+          "features": [
+            "React Native development",
+            "Native iOS & Android",
+            "App Store deployment",
+            "Push notifications",
+            "Offline-first architecture"
+          ]
+        },
+        {
+          "id": "ai",
+          "title": "AI Integration",
+          "subtitle": "Intelligence-driven solutions",
+          "description": "Embed intelligence into products using machine learning, NLP, computer vision, and predictive analytics.",
+          "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "href": "/services/ai-integration",
+          "features": [
+            "Machine learning models",
+            "Natural language processing",
+            "Computer vision systems",
+            "Predictive analytics",
+            "AI-powered automation"
+          ]
+        },
+        {
+          "id": "data",
+          "title": "Data Engineering",
+          "subtitle": "Scalable data infrastructure",
+          "description": "Transform raw data into actionable intelligence with pipelines, warehouses, and analytics platforms.",
+          "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "href": "/services/data-infrastructure",
+          "features": [
+            "Data pipeline development",
+            "Real-time analytics",
+            "Data warehouse design",
+            "ETL/ELT automation",
+            "Business intelligence"
+          ]
+        },
+        {
+          "id": "security",
+          "title": "Security Solutions",
+          "subtitle": "Enterprise security & compliance",
+          "description": "Protect applications, data, and infrastructure with end-to-end security and compliance programs.",
+          "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "href": "/services/cybersecurity",
+          "features": [
+            "Security assessments",
+            "Penetration testing",
+            "Compliance frameworks",
+            "Identity management",
+            "Threat monitoring"
+          ]
+        }
+      ]
+    },
+    "process": {
+      "heading": {
+        "lead": "Our",
+        "highlight": "process"
+      },
+      "description": "A proven delivery framework that keeps projects on track and ensures measurable outcomes.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Discovery & consultation",
+          "description": "We align on goals, stakeholders, and technical context through collaborative discovery sessions.",
+          "duration": "1-2 weeks",
+          "details": [
+            { "title": "Requirements gathering", "description": "Detailed analysis of business and technical needs." },
+            { "title": "Stakeholder interviews", "description": "Alignment with decision makers and end users." },
+            { "title": "Technical assessment", "description": "Evaluation of current systems and integration points." }
+          ]
+        },
+        {
+          "step": "02",
+          "title": "Strategy & planning",
+          "description": "We shape the solution architecture, delivery roadmap, and success metrics.",
+          "duration": "1-3 weeks",
+          "details": [
+            { "title": "Architecture design", "description": "Blueprint for scalable, resilient systems." },
+            { "title": "Technology selection", "description": "Choosing the best-fit stack and tooling." },
+            { "title": "Project roadmap", "description": "Timeline, milestones, and governance model." }
+          ]
+        },
+        {
+          "step": "03",
+          "title": "Development & implementation",
+          "description": "Cross-functional teams deliver in agile iterations with continuous validation.",
+          "duration": "4-16 weeks",
+          "details": [
+            { "title": "Agile delivery", "description": "Iterative sprints with transparent updates." },
+            { "title": "Quality assurance", "description": "Automated and manual testing across environments." },
+            { "title": "Progress reviews", "description": "Regular demos and stakeholder checkpoints." }
+          ]
+        },
+        {
+          "step": "04",
+          "title": "Launch & support",
+          "description": "We manage rollout, knowledge transfer, and long-term optimization.",
+          "duration": "Ongoing",
+          "details": [
+            { "title": "Deployment", "description": "Coordinated cutover and monitoring." },
+            { "title": "Training", "description": "Onboarding for product owners and end users." },
+            { "title": "Continuous improvement", "description": "Performance monitoring, support, and enhancements." }
+          ]
+        }
+      ],
+      "stats": [
+        { "value": "98%", "label": "Project success rate" },
+        { "value": "6-20", "label": "Average delivery weeks" },
+        { "value": "24/7", "label": "Support & maintenance" }
+      ]
+    },
+    "cta": {
+      "heading": "Ready to start your project?",
+      "description": "Let's explore how our team can transform your vision into a real, high-impact solution.",
+      "primary": "Start your project today",
+      "optionsActionLabel": "Get started",
+      "secondary": [
+        {
+          "id": "call",
+          "title": "Schedule a call",
+          "description": "Book a free consultation to discuss your project.",
+          "href": "/contact"
+        },
+        {
+          "id": "email",
+          "title": "Send an email",
+          "description": "Reach our team directly.",
+          "href": "mailto:hello@srholding.org"
+        }
+      ]
+    }
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "We couldn't find the page you were looking for.",
+    "cta": "Return home"
+  },
+  "Metadata": {
+    "siteName": "SR Holding",
+    "defaultTitle": "SR Holding - Software Development Company | Sofia, Bulgaria",
+    "titleTemplate": "%s | SR Holding",
+    "description": "Leading software development company based in Sofia, Bulgaria, specializing in custom applications, AI solutions, blockchain technology, and modern web platforms. Expert team delivering innovative software solutions worldwide. Available 24/7.",
+    "keywords": [
+      "software development Sofia",
+      "web development Bulgaria",
+      "AI solutions Sofia",
+      "blockchain technology Bulgaria",
+      "custom applications Sofia",
+      "mobile app development Bulgaria",
+      "cloud solutions Sofia",
+      "DevOps services Bulgaria",
+      "UI/UX design Sofia",
+      "technology consulting Bulgaria",
+      "enterprise software Sofia",
+      "digital transformation Bulgaria",
+      "SR Holding Sofia",
+      "software company Bulgaria"
+    ],
+    "twitter": {
+      "creator": "@srholding",
+      "site": "@srholding"
+    },
+    "openGraph": {
+      "image": "https://sr-redesign-nextjs.vercel.app/logo.png",
+      "type": "website"
+    },
+    "alternates": {
+      "canonical": "https://sr-redesign-nextjs.vercel.app"
+    }
+  },
+  "BlogPost": {
+    "metadata": {
+      "siteTitle": "SR Holding Blog",
+      "notFoundTitle": "Blog not found",
+      "notFoundDescription": "The requested blog post could not be found."
+    },
+    "breadcrumbs": {
+      "blog": "Blog."
+    },
+    "moreStoriesTitle": "More Stories",
+    "fallbacks": {
+      "untitled": "Untitled",
+      "unknownAuthor": "Unknown author",
+      "noExcerpt": "No excerpt available"
+    }
+  },
+  "ServiceDetail": {
+    "webDevelopment": {
+      "metadata": {
+        "title": "Web Development Services - SR Holding",
+        "description": "Professional web development services including custom web applications, e-commerce platforms, PWAs, API integration, and performance optimization.",
+        "keywords": "web development, custom web applications, e-commerce, progressive web apps, API development, performance optimization",
+        "openGraphTitle": "Web Development Services - SR Holding",
+        "openGraphDescription": "Modern, responsive web applications engineered for scalability, security, and high performance.",
+        "path": "/services/web-development"
+      },
+      "hero": {
+        "backLabel": "Back to Services",
+        "title": "Web Development",
+        "subtitle": "Responsive and scalable web applications",
+        "description": "We build modern web applications that deliver exceptional user experiences across every device. Each solution is engineered for scalability, security, and performance.",
+        "icon": "Code",
+        "features": [
+          "Custom web applications",
+          "E-commerce platforms",
+          "Progressive Web Apps (PWA)",
+          "API development & integration",
+          "Performance optimization"
+        ]
+      },
+      "content": {
+        "heading": "What we deliver",
+        "subheading": "Comprehensive solutions tailored to your business goals",
+        "sections": [
+          {
+            "title": "Custom web applications",
+            "description": "End-to-end web solutions tailored to your exact business requirements, aligned with your brand and workflow.",
+            "benefits": [
+              "Scalable architecture",
+              "Custom functionality",
+              "Brand-aligned design",
+              "Cross-browser compatibility"
+            ]
+          },
+          {
+            "title": "E-commerce platforms",
+            "description": "Complete commerce experiences with secure checkout, inventory management, and analytics-ready reporting.",
+            "benefits": [
+              "Payment gateway integration",
+              "Inventory management",
+              "Order tracking",
+              "Customer analytics"
+            ]
+          },
+          {
+            "title": "Progressive Web Apps",
+            "description": "Native-like web applications offering offline support, push notifications, and best-in-class performance.",
+            "benefits": [
+              "Offline functionality",
+              "Push notifications",
+              "App-like experience",
+              "Fast loading"
+            ]
+          },
+          {
+            "title": "API development",
+            "description": "Robust REST and GraphQL APIs powering integrations between your application and third-party services.",
+            "benefits": [
+              "RESTful APIs",
+              "GraphQL endpoints",
+              "Third-party integration",
+              "Comprehensive documentation"
+            ]
+          },
+          {
+            "title": "Performance optimization",
+            "description": "Speed, SEO, and Core Web Vitals improvements that keep users engaged and rankings strong.",
+            "benefits": [
+              "Page speed optimization",
+              "SEO enhancements",
+              "Core Web Vitals",
+              "Analytics integration"
+            ]
+          }
+        ],
+        "technologiesHeading": "Technologies we use",
+        "technologies": [
+          "React",
+          "Next.js",
+          "Vue.js",
+          "Angular",
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "PostgreSQL",
+          "AWS",
+          "Vercel",
+          "Docker",
+          "TypeScript"
+        ]
+      },
+      "process": {
+        "heading": "Our process",
+        "description": "A proven methodology that keeps your web projects on track and measurable.",
+        "steps": [
+          {
+            "step": "01",
+            "title": "Discovery & planning",
+            "description": "We align on requirements, define scope, and create a delivery roadmap tailored to your product vision."
+          },
+          {
+            "step": "02",
+            "title": "Design & prototyping",
+            "description": "Collaborative UI/UX design, wireframes, and interactive prototypes that bring your experience to life."
+          },
+          {
+            "step": "03",
+            "title": "Development & testing",
+            "description": "Agile implementation with automated testing, ensuring quality and reliability at every stage."
+          },
+          {
+            "step": "04",
+            "title": "Deployment & support",
+            "description": "Smooth launch, knowledge transfer, and ongoing enhancements so your product continues to perform."
+          }
+        ],
+        "cta": "Start your web development project",
+        "ctaHref": "/contact"
+      },
+      "cta": {
+        "heading": "Ready to get started?",
+        "description": "Let's discuss your web development goals and build the right solution for your business.",
+        "primary": {
+          "label": "Start your web project today",
+          "href": "/contact"
+        },
+        "options": [
+          {
+            "id": "call",
+            "title": "Schedule a call",
+            "description": "Discuss your web project with our team",
+            "href": "/contact"
+          },
+          {
+            "id": "email",
+            "title": "Send an email",
+            "description": "Request a detailed proposal",
+            "href": "mailto:hello@srholding.org"
+          }
+        ],
+        "optionsActionLabel": "Get started"
+      },
+      "structuredData": {
+        "serviceName": "Web Development",
+        "serviceDescription": "Custom web application development, e-commerce, and performance optimization by SR Holding.",
+        "serviceType": "WebDevelopment",
+        "areaServed": "Worldwide"
+      }
+    },
+    "mobileApps": {
+      "metadata": {
+        "title": "Mobile App Development Services - SR Holding",
+        "description": "Professional mobile app development services including native iOS & Android, React Native, Flutter, app store optimization, push notifications, and offline functionality.",
+        "keywords": "mobile app development, iOS apps, Android apps, React Native, Flutter, app store optimization, push notifications",
+        "openGraphTitle": "Mobile App Development Services - SR Holding",
+        "openGraphDescription": "High-performance native and cross-platform mobile applications that engage users and drive growth.",
+        "path": "/services/mobile-apps"
+      },
+      "hero": {
+        "backLabel": "Back to Services",
+        "title": "Mobile Apps",
+        "subtitle": "Native and cross-platform applications",
+        "description": "From iOS to Android, we develop native and cross-platform mobile applications that deliver seamless performance and measurable results.",
+        "icon": "Smartphone",
+        "features": [
+          "iOS & Android development",
+          "React Native & Flutter",
+          "App store optimization",
+          "Push notifications",
+          "Offline functionality"
+        ]
+      },
+      "content": {
+        "heading": "What we deliver",
+        "subheading": "Mobile experiences crafted for performance, retention, and growth",
+        "sections": [
+          {
+            "title": "iOS & Android development",
+            "description": "Native applications engineered specifically for iOS and Android, optimized for platform guidelines and device capabilities.",
+            "benefits": [
+              "Native performance",
+              "Platform-specific UI",
+              "App Store compliance",
+              "Deep device integration"
+            ]
+          },
+          {
+            "title": "React Native & Flutter",
+            "description": "Cross-platform applications that deliver near-native experience across ecosystems with a unified codebase.",
+            "benefits": [
+              "Code reusability",
+              "Faster development",
+              "Consistent UI",
+              "Cost-effective delivery"
+            ]
+          },
+          {
+            "title": "App store optimization",
+            "description": "Strategic optimization that improves store visibility, conversion, and user acquisition.",
+            "benefits": [
+              "Keyword optimization",
+              "Compelling visuals",
+              "Review strategy",
+              "Performance analytics"
+            ]
+          },
+          {
+            "title": "Push notifications",
+            "description": "Targeted push campaigns that increase retention, engagement, and user lifetime value.",
+            "benefits": [
+              "Personalized messaging",
+              "Engagement boost",
+              "Automation workflows",
+              "Detailed analytics"
+            ]
+          },
+          {
+            "title": "Offline functionality",
+            "description": "Mobile apps that remain useful without connectivity, syncing data when users are back online.",
+            "benefits": [
+              "Offline data sync",
+              "Cached content",
+              "Background updates",
+              "Reliable UX"
+            ]
+          }
+        ],
+        "technologiesHeading": "Technologies we use",
+        "technologies": [
+          "React Native",
+          "Flutter",
+          "Swift",
+          "Kotlin",
+          "Java",
+          "Objective-C",
+          "Firebase",
+          "AWS",
+          "Google Play Console",
+          "App Store Connect",
+          "Xcode",
+          "Android Studio"
+        ]
+      },
+      "process": {
+        "heading": "Our process",
+        "description": "A mobile delivery framework that puts user experience, iteration, and quality first.",
+        "steps": [
+          {
+            "step": "01",
+            "title": "Discovery & strategy",
+            "description": "We clarify objectives, define features, and map a product strategy aligned with your goals."
+          },
+          {
+            "step": "02",
+            "title": "Design & prototyping",
+            "description": "User-centric wireframes, mockups, and interactive prototypes validate every interaction."
+          },
+          {
+            "step": "03",
+            "title": "Development & testing",
+            "description": "Native and cross-platform builds with in-depth device testing to guarantee quality."
+          },
+          {
+            "step": "04",
+            "title": "Launch & maintenance",
+            "description": "Submission support, analytics, and ongoing updates keep your app thriving post-launch."
+          }
+        ],
+        "cta": "Start your mobile app project",
+        "ctaHref": "/contact"
+      },
+      "cta": {
+        "heading": "Ready to get started?",
+        "description": "Share your mobile vision and we'll deliver the strategy, design, and engineering to make it real.",
+        "primary": {
+          "label": "Start your mobile project today",
+          "href": "/contact"
+        },
+        "options": [
+          {
+            "id": "call",
+            "title": "Schedule a call",
+            "description": "Discuss your mobile roadmap with our specialists",
+            "href": "/contact"
+          },
+          {
+            "id": "email",
+            "title": "Send an email",
+            "description": "Request a detailed mobile app proposal",
+            "href": "mailto:hello@srholding.org"
+          }
+        ],
+        "optionsActionLabel": "Get started"
+      },
+      "structuredData": {
+        "serviceName": "Mobile Application Development",
+        "serviceDescription": "Native and cross-platform mobile application development services by SR Holding.",
+        "serviceType": "MobileApplicationDevelopment",
+        "areaServed": "Worldwide"
+      }
+    },
+    "aiIntegration": {
+      "metadata": {
+        "title": "AI Integration Services - SR Holding",
+        "description": "Comprehensive AI integration services covering machine learning, NLP, computer vision, predictive analytics, and intelligent automation.",
+        "keywords": "AI integration, machine learning, natural language processing, computer vision, predictive analytics, AI automation",
+        "openGraphTitle": "AI Integration Services - SR Holding",
+        "openGraphDescription": "Intelligence-driven solutions that automate workflows, uncover insights, and enhance user experiences.",
+        "path": "/services/ai-integration"
+      },
+      "hero": {
+        "backLabel": "Back to Services",
+        "title": "AI Integration",
+        "subtitle": "Intelligence-driven solutions",
+        "description": "Leverage artificial intelligence to automate decisions, personalize experiences, and gain predictive insights from your data.",
+        "icon": "Brain",
+        "features": [
+          "Machine learning models",
+          "Natural language processing",
+          "Computer vision",
+          "Predictive analytics",
+          "Chatbots & virtual assistants"
+        ]
+      },
+      "content": {
+        "heading": "What we deliver",
+        "subheading": "AI capabilities tailored to your data, workflows, and growth goals",
+        "sections": [
+          {
+            "title": "Machine learning models",
+            "description": "Custom ML models that learn from your data to automate decisions and surface new opportunities.",
+            "benefits": [
+              "Data-driven insights",
+              "Automated decisions",
+              "Pattern recognition",
+              "Continuous learning"
+            ]
+          },
+          {
+            "title": "Natural language processing",
+            "description": "AI-powered language understanding for smarter interactions, content processing, and knowledge extraction.",
+            "benefits": [
+              "Text analysis",
+              "Sentiment detection",
+              "Language translation",
+              "Content generation"
+            ]
+          },
+          {
+            "title": "Computer vision",
+            "description": "Image and video intelligence that recognizes patterns, objects, and events in real time.",
+            "benefits": [
+              "Image recognition",
+              "Object detection",
+              "Video analytics",
+              "Visual automation"
+            ]
+          },
+          {
+            "title": "Predictive analytics",
+            "description": "Forecast trends, manage risk, and make proactive decisions with predictive modelling.",
+            "benefits": [
+              "Future predictions",
+              "Risk assessment",
+              "Trend analysis",
+              "Business forecasting"
+            ]
+          },
+          {
+            "title": "Chatbots & virtual assistants",
+            "description": "Conversational AI that supports customers 24/7, answering questions and automating tasks.",
+            "benefits": [
+              "Always-on support",
+              "Instant responses",
+              "Cost efficiency",
+              "Enhanced experience"
+            ]
+          }
+        ],
+        "technologiesHeading": "Technologies we use",
+        "technologies": [
+          "Python",
+          "TensorFlow",
+          "PyTorch",
+          "OpenAI",
+          "Hugging Face",
+          "AWS AI",
+          "Google AI",
+          "Azure AI",
+          "NVIDIA",
+          "Docker",
+          "Kubernetes",
+          "REST APIs"
+        ]
+      },
+      "process": {
+        "heading": "Our process",
+        "description": "An AI integration lifecycle that spans from strategy through continuous optimization.",
+        "steps": [
+          {
+            "step": "01",
+            "title": "AI strategy & planning",
+            "description": "Assess data readiness, define AI use cases, and establish success metrics."
+          },
+          {
+            "step": "02",
+            "title": "Data preparation & model design",
+            "description": "Clean, label, and engineer data while designing models tailored to your objectives."
+          },
+          {
+            "step": "03",
+            "title": "Development & training",
+            "description": "Build and train models using advanced frameworks with rigorous evaluation."
+          },
+          {
+            "step": "04",
+            "title": "Integration & optimization",
+            "description": "Deploy into production, monitor performance, and iterate for continuous improvement."
+          }
+        ],
+        "cta": "Start your AI integration project",
+        "ctaHref": "/contact"
+      },
+      "cta": {
+        "heading": "Ready to get started?",
+        "description": "Let's align on the AI initiatives that will create the greatest impact for your organisation.",
+        "primary": {
+          "label": "Start your AI project today",
+          "href": "/contact"
+        },
+        "options": [
+          {
+            "id": "call",
+            "title": "Schedule a call",
+            "description": "Review AI opportunities with our specialists",
+            "href": "/contact"
+          },
+          {
+            "id": "email",
+            "title": "Send an email",
+            "description": "Request an AI integration proposal",
+            "href": "mailto:hello@srholding.org"
+          }
+        ],
+        "optionsActionLabel": "Get started"
+      },
+      "structuredData": {
+        "serviceName": "AI Integration",
+        "serviceDescription": "AI integration services by SR Holding including machine learning, NLP, and computer vision capabilities.",
+        "serviceType": "AIIntegration",
+        "areaServed": "Worldwide"
+      }
+    },
+    "dataInfrastructure": {
+      "metadata": {
+        "title": "Data Infrastructure Services - SR Holding",
+        "description": "Data engineering services covering pipelines, warehouses, real-time analytics, ETL/ELT, and business intelligence platforms.",
+        "keywords": "data engineering, data pipelines, data warehouse, ETL, ELT, real-time analytics, business intelligence",
+        "openGraphTitle": "Data Infrastructure Services - SR Holding",
+        "openGraphDescription": "Transform raw data into actionable intelligence with modern data engineering and analytics solutions.",
+        "path": "/services/data-infrastructure"
+      },
+      "hero": {
+        "backLabel": "Back to Services",
+        "title": "Data Infrastructure",
+        "subtitle": "Scalable data platforms and analytics",
+        "description": "We engineer data pipelines, warehouses, and analytics platforms that deliver reliable, real-time insight for your business.",
+        "icon": "Database",
+        "features": [
+          "Data pipeline development",
+          "Real-time analytics",
+          "Data warehouse design",
+          "ETL/ELT automation",
+          "Business intelligence"
+        ]
+      },
+      "content": {
+        "heading": "What we deliver",
+        "subheading": "End-to-end data engineering designed for accuracy, scale, and speed",
+        "sections": [
+          {
+            "title": "Data pipeline development",
+            "description": "Build resilient data pipelines that ingest, transform, and deliver information where it's needed most.",
+            "benefits": [
+              "Reliable ingestion",
+              "Streaming & batch",
+              "Data quality controls",
+              "Observability"
+            ]
+          },
+          {
+            "title": "Data warehouse design",
+            "description": "Modern warehouse architectures optimised for analytics, reporting, and governance.",
+            "benefits": [
+              "Cloud-first architecture",
+              "Semantic modelling",
+              "Access controls",
+              "Cost efficiency"
+            ]
+          },
+          {
+            "title": "Real-time analytics",
+            "description": "Dashboards and alerting powered by real-time data to drive faster decision-making.",
+            "benefits": [
+              "Streaming insights",
+              "Alerting and triggers",
+              "Self-service dashboards",
+              "Embedded analytics"
+            ]
+          },
+          {
+            "title": "ETL/ELT automation",
+            "description": "Automated data workflows that keep information fresh, accurate, and analysis-ready.",
+            "benefits": [
+              "Automated workflows",
+              "Transformation logic",
+              "Data validation",
+              "Scheduling & orchestration"
+            ]
+          },
+          {
+            "title": "Business intelligence",
+            "description": "Analytics experiences tailored to stakeholders with interactive reports and metrics.",
+            "benefits": [
+              "Interactive reports",
+              "Role-based views",
+              "Custom metrics",
+              "Collaboration"
+            ]
+          }
+        ],
+        "technologiesHeading": "Technologies we use",
+        "technologies": [
+          "Snowflake",
+          "BigQuery",
+          "Redshift",
+          "Databricks",
+          "Airflow",
+          "dbt",
+          "Kafka",
+          "Spark",
+          "AWS",
+          "Azure",
+          "GCP",
+          "Tableau"
+        ]
+      },
+      "process": {
+        "heading": "Our process",
+        "description": "Data infrastructure delivered through a governed, iterative approach.",
+        "steps": [
+          {
+            "step": "01",
+            "title": "Assessment & planning",
+            "description": "Audit current architecture, data sources, and business goals to define the roadmap."
+          },
+          {
+            "step": "02",
+            "title": "Architecture & modelling",
+            "description": "Design cloud data architectures, schemas, and governance frameworks."
+          },
+          {
+            "step": "03",
+            "title": "Implementation & automation",
+            "description": "Develop pipelines, warehouses, and automation with rigorous testing."
+          },
+          {
+            "step": "04",
+            "title": "Enablement & optimisation",
+            "description": "Roll out BI experiences, train teams, and continuously optimise performance."
+          }
+        ],
+        "cta": "Start your data infrastructure project",
+        "ctaHref": "/contact"
+      },
+      "cta": {
+        "heading": "Ready to get started?",
+        "description": "Unlock insights faster with data platforms engineered for your organisation.",
+        "primary": {
+          "label": "Start your data project today",
+          "href": "/contact"
+        },
+        "options": [
+          {
+            "id": "call",
+            "title": "Schedule a call",
+            "description": "Discuss data engineering needs with our experts",
+            "href": "/contact"
+          },
+          {
+            "id": "email",
+            "title": "Send an email",
+            "description": "Request a data infrastructure proposal",
+            "href": "mailto:hello@srholding.org"
+          }
+        ],
+        "optionsActionLabel": "Get started"
+      },
+      "structuredData": {
+        "serviceName": "Data Infrastructure",
+        "serviceDescription": "Data engineering and analytics infrastructure services by SR Holding.",
+        "serviceType": "DataEngineering",
+        "areaServed": "Worldwide"
+      }
+    },
+    "cybersecurity": {
+      "metadata": {
+        "title": "Cybersecurity Services - SR Holding",
+        "description": "Enterprise cybersecurity services including security audits, penetration testing, compliance frameworks, identity management, and threat monitoring.",
+        "keywords": "cybersecurity services, penetration testing, security audits, compliance, identity management, threat monitoring",
+        "openGraphTitle": "Cybersecurity Services - SR Holding",
+        "openGraphDescription": "Protect your applications, data, and infrastructure with end-to-end security and compliance programs.",
+        "path": "/services/cybersecurity"
+      },
+      "hero": {
+        "backLabel": "Back to Services",
+        "title": "Security Solutions",
+        "subtitle": "Enterprise security & compliance",
+        "description": "We help you safeguard applications, data, and infrastructure with layered security programmes, monitoring, and response.",
+        "icon": "Shield",
+        "features": [
+          "Security assessments",
+          "Penetration testing",
+          "Compliance frameworks",
+          "Identity management",
+          "Threat monitoring"
+        ]
+      },
+      "content": {
+        "heading": "What we deliver",
+        "subheading": "Security services aligned with modern threats and regulatory demands",
+        "sections": [
+          {
+            "title": "Security assessments",
+            "description": "Comprehensive security posture reviews covering applications, infrastructure, and policies.",
+            "benefits": [
+              "Gap analysis",
+              "Risk scoring",
+              "Remediation roadmap",
+              "Executive reporting"
+            ]
+          },
+          {
+            "title": "Penetration testing",
+            "description": "Simulated attacks that expose vulnerabilities before adversaries can exploit them.",
+            "benefits": [
+              "Application testing",
+              "Infrastructure testing",
+              "Social engineering",
+              "Detailed findings"
+            ]
+          },
+          {
+            "title": "Compliance frameworks",
+            "description": "Implementation and maintenance of security frameworks including ISO 27001, SOC 2, GDPR, and more.",
+            "benefits": [
+              "Framework mapping",
+              "Policy development",
+              "Audit support",
+              "Continuous compliance"
+            ]
+          },
+          {
+            "title": "Identity management",
+            "description": "Centralised identity, access control, and zero-trust architectures for hybrid environments.",
+            "benefits": [
+              "Single sign-on",
+              "Multi-factor authentication",
+              "Role-based access",
+              "Provisioning automation"
+            ]
+          },
+          {
+            "title": "Threat monitoring",
+            "description": "24/7 monitoring, detection, and incident response to guard against evolving threats.",
+            "benefits": [
+              "SIEM integration",
+              "Real-time alerting",
+              "Incident response",
+              "Forensics & reporting"
+            ]
+          }
+        ],
+        "technologiesHeading": "Technologies we use",
+        "technologies": [
+          "Splunk",
+          "Azure Sentinel",
+          "AWS Security Hub",
+          "CrowdStrike",
+          "Okta",
+          "Auth0",
+          "Rapid7",
+          "Cisco",
+          "Fortinet",
+          "HashiCorp Vault",
+          "Terraform",
+          "Ansible"
+        ]
+      },
+      "process": {
+        "heading": "Our process",
+        "description": "Security operations delivered through continuous assessment, hardening, and monitoring.",
+        "steps": [
+          {
+            "step": "01",
+            "title": "Assessment & discovery",
+            "description": "Evaluate current controls, assets, and regulatory requirements to prioritise security work."
+          },
+          {
+            "step": "02",
+            "title": "Hardening & remediation",
+            "description": "Implement security controls, incident response plans, and compliance measures."
+          },
+          {
+            "step": "03",
+            "title": "Monitoring & detection",
+            "description": "Deploy monitoring, threat intelligence, and automated alerting across the environment."
+          },
+          {
+            "step": "04",
+            "title": "Response & improvement",
+            "description": "Respond to incidents, conduct forensics, and iterate on controls to stay ahead of threats."
+          }
+        ],
+        "cta": "Start your security programme",
+        "ctaHref": "/contact"
+      },
+      "cta": {
+        "heading": "Ready to get started?",
+        "description": "Protect mission-critical systems with security programmes built for modern enterprises.",
+        "primary": {
+          "label": "Start your security project today",
+          "href": "/contact"
+        },
+        "options": [
+          {
+            "id": "call",
+            "title": "Schedule a call",
+            "description": "Discuss your security posture with our experts",
+            "href": "/contact"
+          },
+          {
+            "id": "email",
+            "title": "Send an email",
+            "description": "Request a cybersecurity proposal",
+            "href": "mailto:hello@srholding.org"
+          }
+        ],
+        "optionsActionLabel": "Get started"
+      },
+      "structuredData": {
+        "serviceName": "Cybersecurity",
+        "serviceDescription": "Enterprise cybersecurity and compliance services by SR Holding.",
+        "serviceType": "Cybersecurity",
+        "areaServed": "Worldwide"
+      }
+    }
+  },
+  "LegalPage": {
+    "metadata": {
+      "title": "Legal - Privacy Policy, Terms & Conditions, Cookie Policy - SR Holding",
+      "description": "Read SR Holding's privacy policy, terms and conditions, and cookie policy. Learn how we protect your data and the third-party services we use.",
+      "keywords": "privacy policy, terms and conditions, cookie policy, data protection, SR Holding legal",
+      "openGraphTitle": "Legal Information - SR Holding",
+      "openGraphDescription": "Review SR Holding's privacy, terms, and cookie policies to see how we protect your data.",
+      "path": "/legal"
+    },
+    "hero": {
+      "title": "Legal Information",
+      "subtitle": "Privacy Policy, Terms & Conditions, and Cookie Policy",
+      "downloadLabel": "Download PDF"
+    },
+    "sections": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "lastUpdated": "Last updated: {date}",
+        "informationTitle": "Information We Collect",
+        "informationBody": "SR Holding collects information you provide directly to us, such as when you create an account, contact us, or use our services. This may include your name, email address, phone number, and any other information you choose to provide.",
+        "usageTitle": "How We Use Your Information",
+        "usageList": [
+          "To provide, maintain, and improve our services",
+          "To communicate with you about our services",
+          "To process transactions and send related information",
+          "To send technical notices and support messages",
+          "To respond to your comments and questions"
+        ],
+        "thirdPartyTitle": "Third-Party Services",
+        "thirdPartyIntro": "We use the following third-party services to enhance our website and services:",
+        "thirdPartyItems": [
+          { "name": "Vercel", "description": "We use Vercel for hosting and deployment of our website." },
+          { "name": "Meta Pixel", "description": "We use Meta Pixel for advertising and analytics to understand user behavior and improve our marketing efforts." },
+          { "name": "Bunny Security", "description": "We use Bunny for enhanced security and content delivery." },
+          { "name": "Formspree", "description": "All form submissions are processed through Formspree for secure data handling." }
+        ],
+        "securityTitle": "Data Security",
+        "securityBody": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.",
+        "rightsTitle": "Your Rights",
+        "rightsBody": "You have the right to access, update, or delete your personal information. You may also opt out of certain communications from us. To exercise these rights, please contact us at hello@srholding.org."
+      },
+      "terms": {
+        "title": "Terms and Conditions",
+        "lastUpdated": "Last updated: {date}",
+        "acceptanceTitle": "Acceptance of Terms",
+        "acceptanceBody": "By accessing and using SR Holding's website and services, you accept and agree to be bound by the terms and provision of this agreement.",
+        "licenseTitle": "Use License",
+        "licenseBody": "Permission is granted to temporarily download one copy of the materials on SR Holding's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
+        "licenseList": [
+          "Modify or copy the materials",
+          "Use the materials for any commercial purpose or for any public display",
+          "Attempt to reverse engineer any software contained on the website",
+          "Remove any copyright or other proprietary notations from the materials"
+        ],
+        "availabilityTitle": "Service Availability",
+        "availabilityBody": "SR Holding reserves the right to modify or discontinue the service (or any part thereof) temporarily or permanently with or without notice. We shall not be liable to you or to any third party for any modification, price change, suspension, or discontinuance of the service.",
+        "liabilityTitle": "Limitation of Liability",
+        "liabilityBody": "In no event shall SR Holding, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the service.",
+        "lawTitle": "Governing Law",
+        "lawBody": "These terms shall be interpreted and governed by the laws of the United Arab Emirates, without regard to its conflict of law provisions."
+      },
+      "cookies": {
+        "title": "Cookie Policy",
+        "lastUpdated": "Last updated: {date}",
+        "whatTitle": "What Are Cookies",
+        "whatBody": "Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and to provide information to website owners.",
+        "howTitle": "How We Use Cookies",
+        "howIntro": "SR Holding uses cookies for the following purposes:",
+        "howList": [
+          { "name": "Essential cookies", "description": "These cookies are necessary for the website to function properly." },
+          { "name": "Analytics cookies", "description": "We use Meta Pixel to analyze website traffic and user behavior." },
+          { "name": "Performance cookies", "description": "These cookies help us understand how visitors interact with our website." },
+          { "name": "Security cookies", "description": "Enhanced security through Bunny's content delivery network." }
+        ],
+        "thirdPartyTitle": "Third-Party Cookies",
+        "thirdPartyIntro": "Our website may contain cookies from third-party services:",
+        "thirdPartyList": [
+          { "name": "Meta Pixel", "description": "Used for advertising and analytics purposes." },
+          { "name": "Vercel", "description": "Platform-specific cookies for hosting and performance." },
+          { "name": "Bunny", "description": "Security and content delivery cookies." },
+          { "name": "Formspree", "description": "Cookies related to form submission and processing." }
+        ],
+        "manageTitle": "Managing Cookies",
+        "manageBody": "You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed. If you do this, however, you may have to manually adjust some preferences every time you visit a site and some services and functionalities may not work.",
+        "contactTitle": "Contact Us",
+        "contactBody": "If you have any questions about our use of cookies or this Cookie Policy, please contact us at hello@srholding.org."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "company": "SR SOFTWARE HOLDING FZ LLC",
+        "address": "1034 Al Wasl Rd, Dubai, United Arab Emirates",
+        "email": "Email: hello@srholding.org",
+        "phone": "Phone: +359878908741",
+        "note": "For any questions regarding our privacy policy, terms and conditions, or cookie policy, please don't hesitate to contact us."
+      }
+    }
+  }
+}
+

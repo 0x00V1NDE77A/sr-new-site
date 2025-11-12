@@ -1,5 +1,46 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { match as matchLocale } from '@formatjs/intl-localematcher'
+import Negotiator from 'negotiator'
+
+const SUPPORTED_LOCALES = ['en', 'bg'] as const
+const DEFAULT_LOCALE = 'en'
+const LOCALE_PREFIX_REGEX = new RegExp(`^/(${SUPPORTED_LOCALES.join('|')})(/|$)`)
+const PUBLIC_FILE = /\.(.*)$/
+
+const I18N_EXCLUDE_PREFIXES = [
+  '/admin',
+  '/api',
+  '/_next',
+  '/favicon.ico',
+  '/manifest.webmanifest',
+  '/robots.txt',
+  '/sitemap.xml',
+  '/sr-auth',
+]
+
+function localeAlreadyPresent(pathname: string) {
+  return LOCALE_PREFIX_REGEX.test(pathname)
+}
+
+function shouldHandleI18n(pathname: string) {
+  if (PUBLIC_FILE.test(pathname)) return false
+  return !I18N_EXCLUDE_PREFIXES.some((prefix) => pathname.startsWith(prefix))
+}
+
+function getLocale(request: NextRequest) {
+  const negotiatorHeaders: Record<string, string> = {}
+  request.headers.forEach((value, key) => {
+    negotiatorHeaders[key] = value
+  })
+
+  const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
+  if (!languages || languages.length === 0) {
+    return DEFAULT_LOCALE
+  }
+
+  return matchLocale(languages, SUPPORTED_LOCALES, DEFAULT_LOCALE)
+}
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -47,6 +88,13 @@ export async function middleware(request: NextRequest) {
       }
       return NextResponse.redirect(new URL('/sr-auth/login', request.url))
     }
+  }
+
+  if (shouldHandleI18n(pathname) && !localeAlreadyPresent(pathname)) {
+    const locale = getLocale(request)
+    const redirectUrl = request.nextUrl.clone()
+    redirectUrl.pathname = `/${locale}${pathname === '/' ? '' : pathname}`
+    return NextResponse.redirect(redirectUrl)
   }
 
   return NextResponse.next()

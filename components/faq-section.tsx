@@ -1,60 +1,59 @@
 import { FAQClient } from '@/components/faq-client'
+import { DEFAULT_LOCALE, type AppLocale, isAppLocale } from '@/lib/i18n/config'
+import { getTranslations } from 'next-intl/server'
 
-// Server component: fetch FAQs and render SEO-visible HTML
-export async function FAQSection() {
-  let faqs: Array<{ question: string; answer: string }> = []
+function getBaseUrl() {
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    return process.env.NEXT_PUBLIC_APP_URL
+  }
+  if (process.env.NEXTAUTH_URL) {
+    return process.env.NEXTAUTH_URL
+  }
+  return 'http://127.0.0.1:3000'
+}
 
-  // Fallback FAQs if database is not available
-  const fallbackFAQs = [
-    {
-      question: "What software services does SR Holding offer?",
-      answer: "SR Holding provides comprehensive software development services including web applications, mobile apps, custom software solutions, cloud integration, and digital transformation consulting. We specialize in modern technologies and scalable software architecture."
-    },
-    {
-      question: "How can I contact SR Holding for software development projects?",
-      answer: "You can contact us through our website contact form, call our direct line, or email us. Our software development team is available to discuss your project requirements and provide customized solutions for your business needs."
-    },
-    {
-      question: "Does SR Holding work with startups and small businesses?",
-      answer: "Yes, SR Holding works with businesses of all sizes, from startups and small businesses to large enterprises. We offer flexible development packages and scalable solutions that grow with your business, ensuring you get the right technology solution for your budget and requirements."
-    },
-    {
-      question: "What makes SR Holding different from other software companies?",
-      answer: "SR Holding combines cutting-edge technology expertise with deep business understanding. Our team of experienced developers uses modern frameworks and methodologies to deliver high-quality, scalable software solutions. We focus on long-term partnerships and provide ongoing support and maintenance."
-    },
-    {
-      question: "Do you offer mobile app development?",
-      answer: "Absolutely! SR Holding specializes in both iOS and Android mobile app development. We create native and cross-platform applications using the latest technologies, ensuring your mobile app delivers exceptional user experience and performance across all devices."
-    }
-  ]
-
+async function fetchFAQs(locale: AppLocale) {
   try {
-    const response = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/faqs`, {
-      next: { revalidate: 3600 } // Cache for 1 hour (3600 seconds)
+    const baseUrl = getBaseUrl()
+    const apiUrl = new URL('/api/faqs', baseUrl)
+    apiUrl.searchParams.set('locale', locale)
+
+    const response = await fetch(apiUrl.toString(), {
+      next: { revalidate: 3600 },
     })
 
-    if (response.ok) {
-      const data = await response.json()
-      if (data?.success && Array.isArray(data?.data)) {
-        faqs = data.data
-          .map((faq: any) => ({
-            question: faq?.question || '',
-            answer: faq?.answer || ''
-          }))
-          .filter((f: any) => f.question && f.answer)
-      }
+    if (!response.ok) {
+      throw new Error(`Failed to fetch FAQs: ${response.statusText}`)
+    }
+
+    const data = await response.json()
+    if (data?.success && Array.isArray(data?.data)) {
+      return data.data
+        .map((faq: any) => ({
+          question: faq?.question || '',
+          answer: faq?.answer || ''
+        }))
+        .filter((faq: { question: string; answer: string }) => faq.question && faq.answer)
     }
   } catch (error) {
     console.error('Error fetching FAQs (server):', error)
-    // Use fallback FAQs when database is not available
-    faqs = fallbackFAQs
   }
 
-  // Use fallback FAQs if no FAQs from database
-  if (!faqs.length) {
-    faqs = fallbackFAQs
-  }
+  return null
+}
 
-  // Render the original client UI with full design
+function mapFallbackFAQs(raw: Record<string, { question: string; answer: string }>) {
+  return Object.values(raw ?? {}).filter(
+    (item) => item?.question && item?.answer
+  )
+}
+
+// Server component: fetch FAQs and render SEO-visible HTML
+export async function FAQSection({ locale = DEFAULT_LOCALE }: { locale?: string } = {}) {
+  const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
+  const t = await getTranslations({ locale: normalizedLocale, namespace: 'FAQ' })
+  const fallbackFAQs = mapFallbackFAQs(t.raw('fallback') as Record<string, { question: string; answer: string }>)
+
+  const faqs = await fetchFAQs(normalizedLocale) ?? fallbackFAQs
   return <FAQClient faqs={faqs} />
 }

@@ -10,6 +10,12 @@ export interface IFAQ {
   updatedAt: Date
   createdBy: string
   updatedBy: string
+  translations?: {
+    [locale: string]: {
+      question?: string
+      answer?: string
+    }
+  }
 }
 
 export interface FAQSubmission {

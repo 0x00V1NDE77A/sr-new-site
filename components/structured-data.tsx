@@ -7,7 +7,7 @@ interface BlogPostStructuredDataProps {
   publishedAt: string
   updatedAt: string
   heroImage: string
-  slug: string
+  path: string
   category: string
   tags: string[]
 }
@@ -19,10 +19,13 @@ export function BlogPostStructuredData({
   publishedAt,
   updatedAt,
   heroImage,
-  slug,
+  path,
   category,
   tags
 }: BlogPostStructuredDataProps) {
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || ''
+  const absoluteUrl = baseUrl ? `${baseUrl}${path}` : path
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -50,11 +53,11 @@ export function BlogPostStructuredData({
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `/post/${slug}`
+      "@id": absoluteUrl
     },
     "articleSection": category,
     "keywords": tags.join(", "),
-    "url": `/post/${slug}`
+    "url": absoluteUrl
   }
 
   return (
@@ -79,12 +82,15 @@ export function BlogListingStructuredData({
   description,
   url
 }: BlogListingStructuredDataProps) {
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || ''
+  const absoluteUrl = baseUrl ? `${baseUrl}${url}` : url
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": title,
     "description": description,
-    "url": url,
+    "url": absoluteUrl,
     "publisher": {
       "@type": "Organization",
       "name": "SR Holding",

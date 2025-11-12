@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { CountingNumber } from "./ui/counting-number"
 import { FollowerPointerCard } from  "./ui/following-pointer-demo"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -29,7 +30,21 @@ const cardVariants = {
   },
 }
 
+const cardImageData = {
+  infrastructure: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2134&q=80",
+  career: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+  digital: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+}
+
 const Company = () => {
+  const t = useTranslations("Company")
+
+  const cards = [
+    { key: "infrastructure", href: "/services/web-development" },
+    { key: "career", href: "/join-our-team" },
+    { key: "digital", href: "/services" },
+  ] as const
+
   return (
     <main className="bg-white">
       {/* Header */}
@@ -52,7 +67,7 @@ const Company = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            THE COMPANY
+            {t("sectionLabel")}
           </motion.div>
         </div>
       </motion.header>
@@ -67,7 +82,7 @@ const Company = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-black mb-8 sm:mb-12 md:mb-16 px-2 sm:px-0">
-            From Small Startup to Big Enterprise every client matters 
+            {t("title")}
           </h1>
         </motion.div>
 
@@ -80,12 +95,11 @@ const Company = () => {
         >
           {/* Left Column - Unmatched Scale */}
           <motion.div className="space-y-4 sm:space-y-6" variants={cardVariants}>
-            <h2 className="text-lg sm:text-xl font-medium text-blue-600">Unmatched scale</h2>
+            <h2 className="text-lg sm:text-xl font-medium text-blue-600">{t("scaleHeading")}</h2>
 
             <div className="space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed">
               <p className="font-bold text-black">
-              SR Holding’s technology companies are headquartered in Bulgaria, Germany, and Dubai, where engineering talent meets business strategy.
-{/* SR Software develops enterprise platforms, machine learning systems, mobile applications, and automation tools. Whether for governments, Fortune 500 corporations, or ambitious startups, SR Software builds technology designed for scale. */}
+                {t("scaleBody")}
               </p>
             </div>
 
@@ -94,7 +108,7 @@ const Company = () => {
                 <Button
                   className="inline-flex items-center bg-white text-black hover:bg-white hover:underline text-lg sm:text-xl px-4 sm:px-6 py-2 sm:py-3"
                 >
-                  Learn More
+                  {t("cta")}
                 </Button>
               </motion.div>
             </div>
@@ -119,14 +133,12 @@ const Company = () => {
                 +
               </motion.div>
               <div className="text-base sm:text-lg font-medium text-gray-600">
-                Projects Delivered Successfully
+                {t("statsHeading")}
               </div>
               <div className="text-xs sm:text-sm text-gray-500">
-                All figures as of June 30, 2025, unless
-                <br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>otherwise indicated.
+                {t("statsNote")}
               </div>
-              <div className="text-xs sm:text-sm text-gray-500">*As of March 31, 2025</div>
+              <div className="text-xs sm:text-sm text-gray-500">{t("statsNote2")}</div>
             </div>
           </motion.div>
         </motion.div>
@@ -138,113 +150,42 @@ const Company = () => {
           animate="animate"
           variants={staggerContainer}
         >
-          {/* Build IT Infrastructure */}
-          <motion.div
-            className="space-y-4 sm:space-y-6"
-            variants={cardVariants}
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <FollowerPointerCard title="IT Infrastructure Solutions">
-              <motion.div
-                className="aspect-[4/3] rounded-sm overflow-hidden"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2134&q=80"
-                  alt="Modern server infrastructure with glowing lights representing secure IT systems"
-                  className="w-full h-full object-cover"
-                  width={400}
-                  height={300}
-                />
-              </motion.div>
-            </FollowerPointerCard>
-            <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-medium text-blue-600">Build software infrastructure</h3>
-              <p className="text-sm sm:text-base text-black leading-relaxed">
-                We seek to deliver outstanding software solutions for enterprises by building secure, scalable
-                applications with integrity and innovation.
-              </p>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button className="text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 bg-black text-white hover:bg-gray-800">
-                  Learn More
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Build Your Tech Career */}
-          <motion.div
-            className="space-y-4 sm:space-y-6"
-            variants={cardVariants}
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <FollowerPointerCard title="Tech Career Growth">
-              <motion.div
-                className="aspect-[4/3] rounded-sm overflow-hidden"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
-                  alt="IT professionals collaborating and advancing their careers in modern tech environment"
-                  className="w-full h-full object-cover"
-                  width={400}
-                  height={300}
-                />
-              </motion.div>
-            </FollowerPointerCard>
-            <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-medium text-blue-600">Build your tech career</h3>
-              <p className="text-sm sm:text-base text-black leading-relaxed">
-                We offer an environment where exceptional tech talent can build lasting careers. To work at SR Holding
-                means being at the forefront of emerging technologies and setting industry standards.
-              </p>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button className="text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 bg-black text-white hover:bg-gray-800">
-                  Learn More
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Build Digital Solutions */}
-          <motion.div
-            className="space-y-4 sm:space-y-6 sm:col-span-2 lg:col-span-1"
-            variants={cardVariants}
-            whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <FollowerPointerCard title="Digital Innovation">
-              <motion.div
-                className="aspect-[4/3] rounded-sm overflow-hidden"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
-                  alt="Modern tech office representing innovative digital solutions and software development"
-                  className="w-full h-full object-cover"
-                  width={400}
-                  height={300}
-                />
-              </motion.div>
-            </FollowerPointerCard>
-            <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-medium text-blue-600">Build digital solutions</h3>
-              <p className="text-sm sm:text-base text-black leading-relaxed">
-                We build digital solutions with an extensive range of tools and technologies they need to transform and
-                grow their businesses through custom software development.
-              </p>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Button className="text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 bg-black text-white hover:bg-gray-800">
-                  Learn More
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
+          {cards.map(({ key, href }) => (
+            <motion.div
+              key={key}
+              className={`space-y-4 sm:space-y-6 ${key === "digital" ? "sm:col-span-2 lg:col-span-1" : ""}`}
+              variants={cardVariants}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <FollowerPointerCard title={t(`cards.${key}.title`)}>
+                <motion.div
+                  className="aspect-[4/3] rounded-sm overflow-hidden"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src={cardImageData[key]}
+                    alt={t(`cards.${key}.imageAlt`)}
+                    className="w-full h-full object-cover"
+                    width={400}
+                    height={300}
+                  />
+                </motion.div>
+              </FollowerPointerCard>
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-base sm:text-lg font-medium text-blue-600">{t(`cards.${key}.heading`)}</h3>
+                <p className="text-sm sm:text-base text-black leading-relaxed">
+                  {t(`cards.${key}.body`)}
+                </p>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Button className="text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 bg-black text-white hover:bg-gray-800">
+                    {t("cta")}
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </main>

@@ -8,6 +8,7 @@ export interface PostFragment {
   _title: string
   _slug: string
   _id: string
+  href?: string
   author?: {
     _title: string
     avatar: {

@@ -29,6 +29,23 @@ export interface BlogPost {
   }
   readingTime: number
   views: number
+  translations?: {
+    [locale: string]: {
+      title?: string
+      slug?: string
+      excerpt?: string
+      heroImage?: string
+      content?: ContentBlock[]
+      seo?: {
+        metaTitle?: string
+        metaDescription?: string
+        keywords?: string[]
+        socialTitle?: string
+        socialDescription?: string
+        socialImage?: string
+      }
+    }
+  }
 }
 
 export interface ContentBlock {

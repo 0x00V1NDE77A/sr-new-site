@@ -13,7 +13,15 @@ interface TimelineEntry {
   content: React.ReactNode;
 }
 
-export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+export const Timeline = ({
+  data,
+  title,
+  subtitle,
+}: {
+  data: TimelineEntry[];
+  title?: string;
+  subtitle?: string;
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -40,11 +48,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-2xl md:text-5xl lg:text-6xl mb-6 text-black dark:text-white max-w-4xl font-bold">
-          SR Holding's Journey Through Time
+          {title ?? "SR Holding's Journey Through Time"}
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-base md:text-lg lg:text-xl max-w-2xl">
           <WritingText 
-            text="We are a global partner in building industries, protecting assets, and shaping the future."
+            text={
+              subtitle ??
+              "We are a global partner in building industries, protecting assets, and shaping the future."
+            }
             transition={{ type: 'spring', bounce: 0, duration: 1, delay: 0.2 }}
           />
         </p>

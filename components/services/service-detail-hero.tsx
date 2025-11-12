@@ -12,15 +12,17 @@ const iconMap = {
   Shield
 }
 
-interface Service {
-  title: string;
-  subtitle: string;
-  description: string;
-  icon: string;
-  features: string[];
+interface ServiceDetailHeroProps {
+  backHref: string
+  backLabel: string
+  title: string
+  subtitle: string
+  description: string
+  icon: string
+  features: string[]
 }
 
-const ServiceDetailHero = ({ service }: { service: Service }) => {
+const ServiceDetailHero = ({ backHref, backLabel, title, subtitle, description, icon, features }: ServiceDetailHeroProps) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -40,7 +42,18 @@ const ServiceDetailHero = ({ service }: { service: Service }) => {
     },
   }
 
-  const IconComponent = iconMap[service.icon as keyof typeof iconMap]
+  const headingLineVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  }
+
+  const IconComponent = iconMap[icon as keyof typeof iconMap] || Code
 
   return (
     <motion.section
@@ -53,48 +66,44 @@ const ServiceDetailHero = ({ service }: { service: Service }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 w-full relative z-10">
         <div className="grid grid-cols-1 gap-12 md:gap-16 lg:gap-20">
-          {/* Back Button */}
           <motion.div variants={itemVariants}>
-            <Link 
-              href="/services"
+            <Link
+              href={backHref}
               className="group inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-300"
             >
               <ArrowLeft className="h-5 w-5 transform group-hover:-translate-x-1 transition-transform" />
-              <span>Back to Services</span>
+              <span>{backLabel}</span>
             </Link>
           </motion.div>
 
-          {/* Main Content */}
-          <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center" 
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
             variants={itemVariants}
           >
-            {/* Left Side - Content */}
             <div className="space-y-8">
-              {/* Service Icon */}
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-white/10">
                 <IconComponent className="h-10 w-10 text-white" />
               </div>
 
-              {/* Title */}
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-none tracking-tight">
-                  {service.title}
-                </h1>
+                <motion.h1
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-none tracking-tight"
+                  variants={headingLineVariants}
+                >
+                  {title}
+                </motion.h1>
                 <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
-                  {service.subtitle}
+                  {subtitle}
                 </p>
               </div>
 
-              {/* Description */}
               <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                {service.description}
+                {description}
               </p>
 
-              {/* Features List */}
               <div className="space-y-3">
-                {service.features.map((feature: string, index: number) => (
-                  <div key={index} className="flex items-center gap-3">
+                {features.map((feature) => (
+                  <div key={feature} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-white rounded-full flex-shrink-0" />
                     <span className="text-gray-300">{feature}</span>
                   </div>
@@ -102,16 +111,13 @@ const ServiceDetailHero = ({ service }: { service: Service }) => {
               </div>
             </div>
 
-            {/* Right Side - Visual */}
             <div className="relative">
               <div className="relative p-12 bg-white/5 rounded-3xl border border-white/10">
-                {/* Large Service Icon */}
                 <div className="text-center space-y-6">
                   <div className="inline-flex items-center justify-center w-32 h-32 rounded-3xl bg-white/10">
                     <IconComponent className="h-16 w-16 text-white" />
                   </div>
-                  
-                  {/* Decorative Elements */}
+
                   <div className="space-y-2">
                     <div className="w-20 h-1 bg-white/20 rounded-full mx-auto" />
                     <div className="w-16 h-1 bg-white/20 rounded-full mx-auto" />

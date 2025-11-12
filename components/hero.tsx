@@ -1,10 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import { PlayIcon, ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 
 const Hero = () => {
+  const t = useTranslations("Hero")
   const baseEase = [0.25, 0.46, 0.45, 0.94] as const
 
   const containerVariants = {
@@ -67,8 +69,7 @@ const Hero = () => {
     },
   }
 
-  const scrollingText =
-    "From custom software development to AI-powered solutions, SR Holding delivers innovative technology that transforms businesses and drives digital success."
+  const scrollingText = t("marquee")
   const words = scrollingText.split(" ")
 
   const wordVariants = {
@@ -99,48 +100,48 @@ const Hero = () => {
 
   return (
     <motion.section
-      className="bg-black text-white pt-24 pb-12 md:pt-24 md:pb-20 relative overflow-hidden"
+      className="relative pt-24 pb-12 overflow-hidden text-white bg-black md:pt-24 md:pb-20"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900/50 pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-black via-black to-gray-900/50" />
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 space-y-12 md:space-y-16 relative z-10">
+      <div className="relative z-10 px-4 mx-auto space-y-12 max-w-7xl md:px-6 md:space-y-16">
         {/* Top Row: Header */}
-        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center" variants={itemVariants}>
+        <motion.div className="grid items-center grid-cols-1 gap-8 lg:grid-cols-2 md:gap-12" variants={itemVariants}>
           <div className="text-[clamp(2.5rem,6vw,3.5rem)] sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-[0.95] sm:leading-[0.85] tracking-tight text-balance">
             <motion.span className="block break-words" variants={headingLineVariants}>
-              Build with
+              {t("headingLine1")}
             </motion.span>
             <motion.span
-              className="block text-white/95 ml-4 sm:ml-12 md:ml-16 lg:ml-20 mt-2 md:mt-3 break-words"
+              className="block mt-2 ml-4 break-words text-white/95 sm:ml-12 md:ml-16 lg:ml-20 md:mt-3"
               variants={secondLineVariants}
             >
-              SR Holding
+              {t("headingLine2")}
             </motion.span>
           </div>
           <motion.p
-            className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-md lg:max-w-none font-light"
+            className="max-w-md text-base font-light leading-relaxed text-gray-300 md:text-lg lg:text-xl lg:max-w-none"
             variants={itemVariants}
           >
-              At SR Holding, we believe that the strength of a group lies in its ability to adapt. 
+            {t("tagline")}
           </motion.p>
         </motion.div>
 
         {/* Middle Row: Executive Photo */}
         <motion.div className="relative grid grid-cols-1 gap-4 md:gap-6" variants={itemVariants}>
           <motion.div
-            className="relative overflow-hidden rounded-xl shadow-2xl"
+            className="relative overflow-hidden shadow-2xl rounded-xl"
             variants={imageVariants}
             whileHover={{ scale: 1.02, y: -4 }}
             transition={{ duration: 0.4, ease: baseEase }}
           >
-            <div className="absolute inset-0 ring-1 ring-white/10 rounded-xl z-10 pointer-events-none" />
+            <div className="absolute inset-0 z-10 pointer-events-none ring-1 ring-white/10 rounded-xl" />
             <div className="relative w-full">
               <Image
                 src="/rusev.jpg"
-                alt="SR Holding Executive"
+                alt={t("imageAlt")}
                 width={832}
                 height={572}
                 className="w-full h-auto"
@@ -151,22 +152,22 @@ const Hero = () => {
         </motion.div>
 
         {/* Bottom Row: Content & Navigation */}
-        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-end" variants={itemVariants}>
+        <motion.div className="grid items-end grid-cols-1 gap-8 lg:grid-cols-2 md:gap-12" variants={itemVariants}>
           <motion.div variants={itemVariants}>
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight mb-6"
+              className="mb-6 text-2xl font-semibold leading-tight tracking-tight sm:text-3xl md:text-4xl lg:text-5xl"
               variants={itemVariants}
             >
-              Building innovative software solutions for your Business
+              {t("subheading")}
             </motion.h2>
-            <motion.div className="flex items-center space-x-6 mt-6" variants={itemVariants}>
+            <motion.div className="flex items-center mt-6 space-x-6" variants={itemVariants}>
               <motion.div
-                className="p-2 rounded-full hover:bg-white/5 transition-colors duration-200"
+                className="p-2 transition-colors duration-200 rounded-full hover:bg-white/5"
                 whileHover={{ scale: 1.1, x: -2 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ duration: 0.2 }}
               >
-                <ArrowLeft className="cursor-pointer h-5 w-5 md:h-6 md:w-6 text-white/80 hover:text-white transition-colors" />
+                <ArrowLeft className="w-5 h-5 transition-colors cursor-pointer md:h-6 md:w-6 text-white/80 hover:text-white" />
               </motion.div>
               <div className="flex space-x-3">
                 <motion.span
@@ -186,19 +187,19 @@ const Hero = () => {
                 />
               </div>
               <motion.div
-                className="p-2 rounded-full hover:bg-white/5 transition-colors duration-200"
+                className="p-2 transition-colors duration-200 rounded-full hover:bg-white/5"
                 whileHover={{ scale: 1.1, x: 2 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ duration: 0.2 }}
               >
-                <ArrowRight className="cursor-pointer h-5 w-5 md:h-6 md:w-6 text-white/80 hover:text-white transition-colors" />
+                <ArrowRight className="w-5 h-5 transition-colors cursor-pointer md:h-6 md:w-6 text-white/80 hover:text-white" />
               </motion.div>
             </motion.div>
           </motion.div>
           <motion.div className="space-y-6" variants={itemVariants}>
             <div className="overflow-hidden">
               <motion.div
-                className="text-sm md:text-base lg:text-lg text-gray-300 leading-relaxed font-light whitespace-nowrap"
+                className="text-sm font-light leading-relaxed text-gray-300 md:text-base lg:text-lg whitespace-nowrap"
                 variants={containerScrollVariants}
                 initial="hidden"
                 animate="scroll"
@@ -217,16 +218,6 @@ const Hero = () => {
                 ))}
               </motion.div>
             </div>
-            <motion.a
-              href="#"
-              className="inline-flex items-center space-x-3 text-white font-medium hover:text-gray-200 transition-all duration-300 group"
-              variants={itemVariants}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-            >
-              
-              
-            </motion.a>
           </motion.div>
         </motion.div>
       </div>

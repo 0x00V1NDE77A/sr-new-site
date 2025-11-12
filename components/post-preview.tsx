@@ -11,6 +11,7 @@ export function PostPreview({
   excerpt,
   author,
   _slug,
+  href,
 }: PostMetaFragment) {
   return (
     <div>
@@ -18,6 +19,7 @@ export function PostPreview({
         <CoverImage
           title={_title}
           slug={_slug}
+          href={href}
           url={coverImage.url}
           width={700}
           height={700}
@@ -25,7 +27,7 @@ export function PostPreview({
         />
       </div>
       <h3 className="text-3xl mb-3 leading-snug text-white">
-        <Link href={`/post/${_slug}`} className="hover:underline text-white">
+        <Link href={href} className="hover:underline text-white">
           {_title}
         </Link>
       </h3>

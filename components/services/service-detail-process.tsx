@@ -2,16 +2,21 @@
 
 import { motion } from "framer-motion"
 
-interface Service {
-  title: string;
-  process: Array<{
-    step: string;
-    title: string;
-    description: string;
-  }>;
+interface ProcessStep {
+  step: string
+  title: string
+  description: string
 }
 
-const ServiceDetailProcess = ({ service }: { service: Service }) => {
+interface ServiceDetailProcessProps {
+  heading: string
+  description: string
+  steps: ProcessStep[]
+  ctaLabel: string
+  ctaHref: string
+}
+
+const ServiceDetailProcess = ({ heading, description, steps, ctaLabel, ctaHref }: ServiceDetailProcessProps) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -34,7 +39,6 @@ const ServiceDetailProcess = ({ service }: { service: Service }) => {
   return (
     <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -50,15 +54,13 @@ const ServiceDetailProcess = ({ service }: { service: Service }) => {
             viewport={{ once: true }}
           />
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-white mb-6">
-            Our Process
+            {heading}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            A proven methodology that ensures successful project delivery 
-            and exceptional results for your {service.title.toLowerCase()} project.
+            {description}
           </p>
         </motion.div>
 
-        {/* Process Steps */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
           variants={containerVariants}
@@ -66,19 +68,17 @@ const ServiceDetailProcess = ({ service }: { service: Service }) => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {service.process.map((step: any, index: number) => (
+          {steps.map((step, index) => (
             <motion.div
-              key={step.step}
+              key={`${step.step}-${step.title}`}
               className="relative group"
               variants={itemVariants}
             >
-              {/* Connection Line */}
-              {index < service.process.length - 1 && (
+              {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gray-700 z-0" />
               )}
 
               <div className="relative z-10">
-                {/* Step Number */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
                   <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r ${
                     index === 0 ? 'from-blue-500 to-cyan-500' :
@@ -91,14 +91,12 @@ const ServiceDetailProcess = ({ service }: { service: Service }) => {
                   <div className="hidden sm:block w-6 sm:w-8 h-0.5 bg-gray-700" />
                 </div>
 
-                {/* Icon */}
                 <div className="mb-4 sm:mb-6">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors duration-300">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/20 rounded-lg" />
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="space-y-3 sm:space-y-4">
                   <h3 className="text-lg sm:text-xl font-bold text-white">
                     {step.title}
@@ -112,7 +110,6 @@ const ServiceDetailProcess = ({ service }: { service: Service }) => {
           ))}
         </motion.div>
 
-        {/* Bottom CTA */}
         <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
@@ -121,12 +118,12 @@ const ServiceDetailProcess = ({ service }: { service: Service }) => {
           viewport={{ once: true }}
         >
           <motion.a
-            href="/contact"
+            href={ctaHref}
             className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 ease-in-out"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span>Start Your {service.title} Project</span>
+            <span>{ctaLabel}</span>
             <motion.div
               className="w-5 h-5"
               whileHover={{ x: 4 }}

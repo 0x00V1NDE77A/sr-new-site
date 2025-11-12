@@ -1,35 +1,10 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useMemo, useState } from "react"
+import type { AdminBlogPost } from "@/types/blog"
 
-interface BlogPost {
-  title: string
-  slug: string
-  content: any[]
-  excerpt: string
-  heroImage?: string
-  author: {
-    name: string
-    email: string
-    avatar?: string
-  }
-  publishedAt?: Date
-  status: "draft" | "published" | "archived"
-  featured: boolean
-  category: string
-  tags: string[]
-  seo: {
-    metaTitle: string
-    metaDescription: string
-    keywords: string[]
-    socialTitle?: string
-    socialDescription?: string
-    socialImage?: string
-  }
-}
-
-interface BlogResponse {
-  blogs: BlogPost[]
+type BlogResponse = {
+  blogs: AdminBlogPost[]
   pagination: {
     page: number
     limit: number
@@ -37,6 +12,13 @@ interface BlogResponse {
     pages: number
   }
 }
+
+type CreateBlogInput = Omit<
+  AdminBlogPost,
+  "_id" | "readingTime" | "views" | "createdAt" | "updatedAt"
+>
+
+type UpdateBlogInput = Partial<CreateBlogInput>
 
 export function useBlogApi() {
   const [loading, setLoading] = useState(false)
@@ -83,7 +65,7 @@ export function useBlogApi() {
   }, [])
 
   const fetchBlog = useMemo(() => {
-    return async (id: string): Promise<BlogPost | null> => {
+    return async (id: string): Promise<AdminBlogPost | null> => {
       setLoading(true)
       setError(null)
 
@@ -94,7 +76,7 @@ export function useBlogApi() {
           throw new Error("Failed to fetch blog")
         }
 
-        const data = await response.json()
+        const data = (await response.json()) as AdminBlogPost
         return data
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred")
@@ -106,7 +88,7 @@ export function useBlogApi() {
   }, [])
 
   const createBlog = useMemo(() => {
-    return async (blogData: BlogPost): Promise<BlogPost | null> => {
+    return async (blogData: CreateBlogInput): Promise<any | null> => {
       setLoading(true)
       setError(null)
 
@@ -151,7 +133,7 @@ export function useBlogApi() {
   }, [])
 
   const updateBlog = useMemo(() => {
-    return async (id: string, blogData: Partial<BlogPost>): Promise<BlogPost | null> => {
+    return async (id: string, blogData: UpdateBlogInput): Promise<any | null> => {
       setLoading(true)
       setError(null)
 

@@ -7,6 +7,7 @@ export interface PostMetaFragment {
   _id: string
   _slug: string
   _title: string
+  href: string
   author?: {
     _title: string
     avatar: {
@@ -30,6 +31,7 @@ export function HeroPost({
   excerpt,
   author,
   _slug,
+  href,
 }: PostMetaFragment) {
   return (
     <section>
@@ -37,6 +39,7 @@ export function HeroPost({
         <CoverImage
           title={_title}
           slug={_slug}
+          href={href}
           url={coverImage.url}
           width={400}
           height={300}
@@ -45,7 +48,7 @@ export function HeroPost({
       </div>
       <div className="mb-20 md:mb-28">
         <h3 className="mb-4 text-4xl leading-tight lg:text-6xl">
-          <Link href={`/post/${_slug}`} className="hover:underline">
+          <Link href={href} className="hover:underline">
             {_title}
           </Link>
         </h3>

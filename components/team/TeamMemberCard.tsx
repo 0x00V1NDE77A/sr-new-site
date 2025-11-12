@@ -6,9 +6,10 @@ import { TeamMember } from './types';
 
 interface TeamMemberCardProps {
   member: TeamMember;
+  overlayLabel: string;
 }
 
-const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, overlayLabel }) => {
   return (
     <div className="transition-all duration-500 ease-out transform cursor-pointer group hover:-translate-y-2">
       <div className="relative overflow-hidden transition-all duration-500 ease-out bg-white border border-gray-100 hover:border-black hover:shadow-2xl">
@@ -21,7 +22,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
           {/* Black overlay with team text and LinkedIn */}
           <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-out bg-black bg-opacity-0 group-hover:bg-opacity-70">
             <div className="text-center text-white transition-all duration-500 ease-out transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="mb-4 text-sm font-light tracking-wider uppercase">Our Team Members</p>
+              <p className="mb-4 text-sm font-light tracking-wider uppercase">{overlayLabel}</p>
             </div>
             {member.linkedin && (
               <a

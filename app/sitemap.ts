@@ -1,99 +1,96 @@
 import { MetadataRoute } from 'next'
+import { SUPPORTED_LOCALES } from '@/lib/i18n/config'
+
+const APP_BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://sr-redesign-nextjs.vercel.app'
+
+type StaticRouteConfig = {
+  path: string
+  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']
+  priority: number
+}
+
+const STATIC_ROUTES: StaticRouteConfig[] = [
+  { path: '/', changeFrequency: 'monthly', priority: 1 },
+  { path: '/blogs', changeFrequency: 'daily', priority: 0.9 },
+  { path: '/about', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/contact', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/team', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/join-our-team', changeFrequency: 'weekly', priority: 0.8 },
+  { path: '/services', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/legal', changeFrequency: 'yearly', priority: 0.4 },
+]
+
+function buildLocaleUrl(locale: string, path: string) {
+  const normalizedPath = path === '/' ? '' : path
+  return `${APP_BASE_URL}/${locale}${normalizedPath}`
+}
+
+function buildAlternates(path: string) {
+  return Object.fromEntries(
+    SUPPORTED_LOCALES.map((locale) => [locale, buildLocaleUrl(locale, path)])
+  )
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://sr-redesign-nextjs.vercel.app'
-  
   try {
     // Fetch all published blog slugs
-    const url = new URL('/api/blogs/slugs', baseUrl)
-    const response = await fetch(url.toString(), {
+    const response = await fetch(new URL('/api/blogs/slugs', APP_BASE_URL), {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      cache: 'no-store'
+      cache: 'no-store',
     })
-    
+
     if (!response.ok) {
       throw new Error('Failed to fetch blog slugs')
     }
-    
+
     const data = await response.json()
-    const blogSlugs = data.slugs || []
-    
-    // Generate sitemap entries
-    const blogEntries = blogSlugs.map((slug: string) => ({
-      url: `${baseUrl}/post/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }))
-    
-    // Static pages
-    const staticPages = [
-      {
-        url: baseUrl,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 1,
-      },
-      {
-        url: `${baseUrl}/blogs`,
-        lastModified: new Date(),
-        changeFrequency: 'daily' as const,
-        priority: 0.9,
-      },
-      {
-        url: `${baseUrl}/about`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      },
-      {
-        url: `${baseUrl}/contact`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-      },
-      {
-        url: `${baseUrl}/team`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-      },
-      {
-        url: `${baseUrl}/join-our-team`,
+    const blogSlugs: string[] = data.slugs || []
+
+    const blogEntries: MetadataRoute.Sitemap = blogSlugs.flatMap((slug) => {
+      const path = `/post/${slug}`
+      const languages = buildAlternates(path)
+      return SUPPORTED_LOCALES.map((locale) => ({
+        url: buildLocaleUrl(locale, path),
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
-      },
-      {
-        url: `${baseUrl}/admin/contact-details`,
+        alternates: {
+          languages,
+        },
+      }))
+    })
+
+    const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.flatMap(({ path, changeFrequency, priority }) => {
+      const languages = buildAlternates(path)
+      return SUPPORTED_LOCALES.map((locale) => ({
+        url: buildLocaleUrl(locale, path),
         lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.3,
-      },
-    ]
-    
-    return [...staticPages, ...blogEntries]
-    
+        changeFrequency,
+        priority,
+        alternates: {
+          languages,
+        },
+      }))
+    })
+
+    return [...staticEntries, ...blogEntries]
   } catch (error) {
     console.error('Error generating sitemap:', error)
-    
-    // Fallback to static pages only
-    return [
-      {
-        url: baseUrl,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 1,
+
+    const fallbackPath = '/'
+    const languages = buildAlternates(fallbackPath)
+
+    return SUPPORTED_LOCALES.map((locale) => ({
+      url: buildLocaleUrl(locale, fallbackPath),
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+      alternates: {
+        languages,
       },
-      {
-        url: `${baseUrl}/blogs`,
-        lastModified: new Date(),
-        changeFrequency: 'daily' as const,
-        priority: 0.9,
-      },
-    ]
+    }))
   }
 }

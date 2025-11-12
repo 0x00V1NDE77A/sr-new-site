@@ -12,12 +12,16 @@ import {
 
 export const HeroParallax = ({
   products,
+  headline,
+  description,
 }: {
   products: {
     title: string;
     link: string;
     thumbnail: string;
   }[];
+  headline?: string;
+  description?: string;
 }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
@@ -59,7 +63,7 @@ export const HeroParallax = ({
       ref={ref}
       className="h-[200vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <Header />
+      <Header headline={headline} description={description} />
       <motion.div
         style={{
           rotateX,
@@ -101,16 +105,26 @@ export const HeroParallax = ({
   );
 };
 
-export const Header = () => {
+export const Header = ({
+  headline,
+  description,
+}: {
+  headline?: string;
+  description?: string;
+}) => {
   return (
     <div className="relative top-0 left-0 w-full px-4 py-20 mx-auto max-w-7xl md:py-40">
       <h1 className="text-2xl font-bold text-white md:text-7xl dark:text-white">
-       We create Software <br /> That makes you sell more
+        <span
+          dangerouslySetInnerHTML={{
+            __html:
+              headline ?? "We create Software <br /> That makes you sell more",
+          }}
+        />
       </h1>
       <p className="max-w-2xl mt-8 text-base text-white md:text-xl dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
+        {description ??
+          "We build beautiful products with the latest technologies and frameworks. We are a team of passionate developers and designers that love to build amazing products."}
       </p>
     </div>
   );
