@@ -1,16 +1,20 @@
 import { JoinTeamJobSchema } from './job-schema'
 import JoinTeamPageClient from './page-client'
-import { DEFAULT_LOCALE, isAppLocale, type AppLocale } from '@/lib/i18n/config'
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, isAppLocale, type AppLocale } from '@/lib/i18n/config'
 import { generateSEOMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
 type RouteParams = {
-  params: Promise<{ locale: string }>
+  params: { locale: string }
+}
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }))
 }
 
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
-  const { locale } = await params
+  const { locale } = params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const t = await getTranslations({ locale: normalizedLocale, namespace: 'JoinTeam.metadata' })
 
@@ -45,7 +49,7 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
 }
 
 export default async function JoinTeamPage({ params }: RouteParams) {
-  const { locale } = await params
+  const { locale } = params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const t = await getTranslations({ locale: normalizedLocale, namespace: 'JoinTeam' })
   const jobs = t.raw('openPositions') as Array<{
