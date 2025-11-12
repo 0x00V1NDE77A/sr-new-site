@@ -8,7 +8,7 @@ import { Suspense } from "react"
 import { SEOSection } from "@/components/seo-section"
 import type { Metadata } from "next"
 import { getTranslations } from "next-intl/server"
-import { DEFAULT_LOCALE, isAppLocale, type AppLocale } from "@/lib/i18n/config"
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, isAppLocale, type AppLocale } from "@/lib/i18n/config"
 import { generateSEOMetadata } from "@/lib/seo"
 import { ServiceSchema } from "@/components/structured-data/service-schema"
 import type {
@@ -28,8 +28,16 @@ function localizeHref(href: string, locale: AppLocale) {
   return `/${locale}${normalized}`
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale } = await params
+type RouteParams = {
+  params: { locale: string }
+}
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
+  const { locale } = params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const t = await getTranslations({ locale: normalizedLocale, namespace: 'ServiceDetail.dataInfrastructure.metadata' })
 
@@ -63,8 +71,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-export default async function DataInfrastructureService({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params
+export default async function DataInfrastructureService({ params }: RouteParams) {
+  const { locale } = params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const translation = await getTranslations({ locale: normalizedLocale, namespace: 'ServiceDetail.dataInfrastructure' })
 

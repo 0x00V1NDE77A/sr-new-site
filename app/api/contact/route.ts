@@ -3,6 +3,9 @@ import { getDatabase } from '@/lib/mongodb'
 import { ContactSubmission } from '@/lib/models/contact'
 import { z } from 'zod'
 
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
+
 // Validation schema for contact form
 const contactSchema = z.object({
   firstName: z.string().min(1, 'First name is required').max(50, 'First name too long'),

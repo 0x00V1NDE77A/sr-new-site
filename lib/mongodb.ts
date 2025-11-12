@@ -2,13 +2,11 @@
 import { MongoClient, type Db } from "mongodb"
 
 // Force Node.js runtime to avoid Edge Runtime issues with MongoDB
-export const runtime = 'nodejs';
-
-if (!process.env.MONGODB_URI) {
-  throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')
-}
+export const runtime = 'nodejs'
 
 const uri = process.env.MONGODB_URI
+const dbName = process.env.MONGODB_DB_NAME
+
 const options = {
   compressors: ['none' as const], // Disable compression to avoid snappy issues
   maxPoolSize: 10,
@@ -24,9 +22,9 @@ const options = {
 let client: MongoClient
 let clientPromise: Promise<MongoClient>
 
-if (process.env.NODE_ENV === "development") {
-  // In development mode, use a global variable so that the value
-  // is preserved across module reloads caused by HMR (Hot Module Replacement).
+if (!uri) {
+  clientPromise = Promise.reject(new Error('Invalid/Missing environment variable: "MONGODB_URI"'))
+} else if (process.env.NODE_ENV === "development") {
   const globalWithMongo = global as typeof globalThis & {
     _mongoClientPromise?: Promise<MongoClient>
   }
@@ -37,14 +35,17 @@ if (process.env.NODE_ENV === "development") {
   }
   clientPromise = globalWithMongo._mongoClientPromise
 } else {
-  // In production mode, it's best to not use a global variable.
   client = new MongoClient(uri, options)
   clientPromise = client.connect()
 }
 
 export async function getDatabase(): Promise<Db> {
   const client = await clientPromise
-  const dbName = process.env.MONGODB_DB_NAME 
+
+  if (!dbName) {
+    throw new Error('Invalid/Missing environment variable: "MONGODB_DB_NAME"')
+  }
+
   return client.db(dbName)
 }
 
