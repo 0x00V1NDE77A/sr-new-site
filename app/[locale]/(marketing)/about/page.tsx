@@ -7,7 +7,7 @@ import { getTranslations } from 'next-intl/server'
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type AppLocale, isAppLocale } from '@/lib/i18n/config'
 
 type RouteParams = {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export function generateStaticParams() {
@@ -15,7 +15,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
-  const { locale } = params
+  const { locale } = await params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   const metadataTranslations = await getTranslations({
     locale: normalizedLocale,
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
 }
 
 export default async function AboutPage({ params }: RouteParams) {
-  const { locale } = params
+  const { locale } = await params
   const normalizedLocale: AppLocale = isAppLocale(locale) ? locale : DEFAULT_LOCALE
   // The TimelineDemo component handles its own translations client-side if needed.
 
