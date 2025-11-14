@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { CountingNumber } from "./ui/counting-number"
 import { FollowerPointerCard } from  "./ui/following-pointer-demo"
 import Image from "next/image"
+import Link from "next/link"
 import { useTranslations } from "next-intl"
 
 const fadeInUp = {
@@ -40,9 +41,9 @@ const Company = () => {
   const t = useTranslations("Company")
 
   const cards = [
-    { key: "infrastructure", href: "/services/web-development" },
-    { key: "career", href: "/join-our-team" },
-    { key: "digital", href: "/services" },
+    { key: "infrastructure", href: "/software-infrastructure" },
+    { key: "career", href: "/buildyourtech" },
+    { key: "digital", href: "/build-digital-solutions" },
   ] as const
 
   return (
@@ -179,9 +180,11 @@ const Company = () => {
                   {t(`cards.${key}.body`)}
                 </p>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Button className="text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 bg-black text-white hover:bg-gray-800">
-                    {t("cta")}
-                  </Button>
+                  <Link href={href}>
+                    <Button className="text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 bg-black text-white hover:bg-gray-800">
+                      {t("cta")}
+                    </Button>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>

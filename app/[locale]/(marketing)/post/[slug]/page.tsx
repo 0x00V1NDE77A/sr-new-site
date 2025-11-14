@@ -10,64 +10,139 @@ import Footer from "@/components/footer"
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type AppLocale, isAppLocale } from "@/lib/i18n/config"
 import { getTranslations } from "next-intl/server"
 import { generateSEOMetadata } from "@/lib/seo"
+import clientPromise from "@/lib/mongodb"
+import type { BlogPost } from "@/lib/models/blog"
 
 export const dynamic = "force-dynamic"
 export const revalidate = 0
 
 const APP_BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://sr-redesign-nextjs.vercel.app"
 
-async function getBlogBySlug(slug: string, locale: AppLocale) {
+type LocalizedBlogFields = Pick<
+  BlogPost,
+  | "_id"
+  | "title"
+  | "slug"
+  | "content"
+  | "excerpt"
+  | "heroImage"
+  | "author"
+  | "category"
+  | "tags"
+  | "publishedAt"
+  | "readingTime"
+  | "views"
+  | "featured"
+  | "seo"
+> & { translations?: BlogPost["translations"] }
+
+async function getBlogsCollection() {
+  const client = await clientPromise
+  const db = client.db()
+  return db.collection<BlogPost>("blogs")
+}
+
+function localizeBlog(blog: LocalizedBlogFields, locale: AppLocale) {
+  const { translations, ...rest } = blog
+  const translation = translations?.[locale] ?? {}
+  const localizedSeo = {
+    ...rest.seo,
+    metaTitle: translation.seo?.metaTitle ?? rest.seo?.metaTitle,
+    metaDescription: translation.seo?.metaDescription ?? rest.seo?.metaDescription,
+    keywords: translation.seo?.keywords ?? rest.seo?.keywords,
+    socialTitle: translation.seo?.socialTitle ?? rest.seo?.socialTitle,
+    socialDescription: translation.seo?.socialDescription ?? rest.seo?.socialDescription,
+    socialImage: translation.seo?.socialImage ?? rest.seo?.socialImage,
+  }
+
+  return {
+    ...rest,
+    title: translation.title ?? rest.title,
+    slug: translation.slug ?? rest.slug,
+    excerpt: translation.excerpt ?? rest.excerpt,
+    heroImage: translation.heroImage ?? rest.heroImage,
+    content: translation.content ?? rest.content,
+    seo: localizedSeo,
+  }
+}
+
+async function getBlogBySlug(slug: string, locale: AppLocale, options: { incrementView?: boolean } = {}) {
   try {
-    const url = new URL(`/api/blogs/${slug}`, APP_BASE_URL)
-    url.searchParams.set('locale', locale)
+    const blogsCollection = await getBlogsCollection()
+    const slugConditions = [
+      { slug },
+      ...SUPPORTED_LOCALES.map((loc) => ({ [`translations.${loc}.slug`]: slug })),
+    ]
 
-    const response = await fetch(url.toString(), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-store'
-    })
-
-    if (!response.ok) {
-      if (response.status === 404) {
-        return null
+    const blog = await blogsCollection.findOne<LocalizedBlogFields>(
+      { status: "published", $or: slugConditions },
+      {
+        projection: {
+          _id: 1,
+          title: 1,
+          slug: 1,
+          content: 1,
+          excerpt: 1,
+          heroImage: 1,
+          author: 1,
+          category: 1,
+          tags: 1,
+          publishedAt: 1,
+          readingTime: 1,
+          views: 1,
+          featured: 1,
+          seo: 1,
+          translations: 1,
+        },
       }
-      throw new Error('Failed to fetch blog')
+    )
+
+    if (!blog) {
+      return null
     }
 
-    const data = await response.json()
-    return data.blog
+    if (options.incrementView && blog._id) {
+      await blogsCollection.updateOne({ _id: blog._id }, { $inc: { views: 1 } })
+    }
+
+    return localizeBlog(blog, locale)
   } catch (error) {
-    console.error('Error fetching blog:', error)
+    console.error("Error fetching blog:", error)
     return null
   }
 }
 
 async function getRelatedBlogs(locale: AppLocale, currentSlug: string, limit: number = 8) {
   try {
-    const url = new URL('/api/blogs', APP_BASE_URL)
-    url.searchParams.set('limit', limit.toString())
-    url.searchParams.set('sort', 'publishedAt')
-    url.searchParams.set('order', 'desc')
-    url.searchParams.set('locale', locale)
+    const blogsCollection = await getBlogsCollection()
+    const blogs = await blogsCollection
+      .find<LocalizedBlogFields>({ status: "published" })
+      .project({
+        _id: 1,
+        title: 1,
+        slug: 1,
+        excerpt: 1,
+        heroImage: 1,
+        author: 1,
+        category: 1,
+        tags: 1,
+        publishedAt: 1,
+        readingTime: 1,
+        views: 1,
+        featured: 1,
+        seo: 1,
+        translations: 1,
+      })
+      .sort({ publishedAt: -1, createdAt: -1 })
+      .limit(limit * 3)
+      .toArray()
 
-    const response = await fetch(url.toString(), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-store'
-    })
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch related blogs')
-    }
-
-    const data = await response.json()
-    return (data.blogs || []).filter((blog: any) => blog.slug !== currentSlug).slice(0, limit)
+    return blogs
+      .map((blog) => localizeBlog(blog, locale))
+      .filter((blog) => blog.slug !== currentSlug)
+      .slice(0, limit)
   } catch (error) {
-    console.error('Error fetching related blogs:', error)
+    console.error("Error fetching related blogs:", error)
     return []
   }
 }
@@ -141,25 +216,20 @@ function transformBlogForMoreStories(blog: any, locale: AppLocale, fallbacks: Po
 
 export async function generateStaticParams() {
   try {
-    const url = new URL('/api/blogs/slugs', APP_BASE_URL)
-    const response = await fetch(url.toString(), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-store'
-    })
+    const blogsCollection = await getBlogsCollection()
+    const blogs = await blogsCollection
+      .find<Pick<BlogPost, "slug" | "translations">>({ status: "published" })
+      .project({ slug: 1, translations: 1 })
+      .toArray()
 
-    if (!response.ok) {
-      return []
-    }
-
-    const data = await response.json()
     return SUPPORTED_LOCALES.flatMap((locale) =>
-      (data.slugs as string[] | undefined)?.map((slug) => ({ locale, slug })) ?? []
+      blogs
+        .map((blog) => blog.translations?.[locale]?.slug ?? blog.slug)
+        .filter((slug): slug is string => Boolean(slug))
+        .map((slug) => ({ locale, slug }))
     )
   } catch (error) {
-    console.error('Error generating static params:', error)
+    console.error("Error generating static params:", error)
     return []
   }
 }
@@ -170,7 +240,7 @@ type PageProps = { params: PageParams }
 
 export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
   const locale: AppLocale = isAppLocale(params.locale) ? params.locale : DEFAULT_LOCALE
-  const t = await getTranslations({ locale, namespace: 'BlogPost' })
+  const t = await getTranslations({ locale, namespace: "BlogPost" })
   const blog = await getBlogBySlug(params.slug, locale)
 
   if (!blog) {
@@ -227,8 +297,8 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
 export default async function PostPage({ params }: PageProps) {
   const locale: AppLocale = isAppLocale(params.locale) ? params.locale : DEFAULT_LOCALE
   const [blog, t] = await Promise.all([
-    getBlogBySlug(params.slug, locale),
-    getTranslations({ locale, namespace: 'BlogPost' })
+    getBlogBySlug(params.slug, locale, { incrementView: true }),
+    getTranslations({ locale, namespace: "BlogPost" }),
   ])
 
   if (!blog) {

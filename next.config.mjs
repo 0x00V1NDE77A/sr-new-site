@@ -13,6 +13,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Disable static export for API routes and dynamic pages
+  output: undefined,
   async headers() {
     return [
       {

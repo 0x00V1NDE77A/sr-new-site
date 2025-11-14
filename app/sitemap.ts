@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
 import { SUPPORTED_LOCALES } from '@/lib/i18n/config'
+import clientPromise from '@/lib/mongodb'
+import type { BlogPost } from '@/lib/models/blog'
 
 const APP_BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://sr-redesign-nextjs.vercel.app'
 
@@ -31,38 +33,56 @@ function buildAlternates(path: string) {
   )
 }
 
+type BlogSlugDocument = Pick<BlogPost, 'slug' | 'publishedAt' | 'updatedAt'> & {
+  translations?: BlogPost['translations']
+}
+
+async function fetchPublishedBlogSlugs() {
+  const client = await clientPromise
+  const db = client.db()
+  const blogs = await db
+    .collection<BlogPost>('blogs')
+    .find<BlogSlugDocument>({ status: 'published' })
+    .project({ slug: 1, translations: 1, publishedAt: 1, updatedAt: 1 })
+    .toArray()
+
+  return blogs
+}
+
+function buildBlogAlternates(blog: BlogSlugDocument) {
+  return Object.fromEntries(
+    SUPPORTED_LOCALES.map((locale) => {
+      const localizedSlug = blog.translations?.[locale]?.slug ?? blog.slug
+      return [locale, buildLocaleUrl(locale, `/post/${localizedSlug}`)]
+    })
+  )
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
-    // Fetch all published blog slugs
-    const response = await fetch(new URL('/api/blogs/slugs', APP_BASE_URL), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      next: {
-        revalidate: 3600,
-      },
-    })
+    const blogs = await fetchPublishedBlogSlugs()
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch blog slugs')
-    }
+    const blogEntries: MetadataRoute.Sitemap = blogs.flatMap((blog) => {
+      const languages = buildBlogAlternates(blog)
+      const lastModified = blog.updatedAt || blog.publishedAt || new Date()
 
-    const data = await response.json()
-    const blogSlugs: string[] = data.slugs || []
+      return SUPPORTED_LOCALES.flatMap((locale) => {
+        const localizedSlug = blog.translations?.[locale]?.slug ?? blog.slug
+        if (!localizedSlug) {
+          return []
+        }
 
-    const blogEntries: MetadataRoute.Sitemap = blogSlugs.flatMap((slug) => {
-      const path = `/post/${slug}`
-      const languages = buildAlternates(path)
-      return SUPPORTED_LOCALES.map((locale) => ({
-        url: buildLocaleUrl(locale, path),
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-        alternates: {
-          languages,
-        },
-      }))
+        const path = `/post/${localizedSlug}`
+        return {
+          url: buildLocaleUrl(locale, path),
+          lastModified,
+          changeFrequency: 'weekly' as const,
+          priority: 0.8,
+          alternates: {
+            languages,
+          },
+        }
+      })
     })
 
     const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.flatMap(({ path, changeFrequency, priority }) => {

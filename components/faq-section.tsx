@@ -1,40 +1,25 @@
 import { FAQClient } from '@/components/faq-client'
 import { DEFAULT_LOCALE, type AppLocale, isAppLocale } from '@/lib/i18n/config'
 import { getTranslations } from 'next-intl/server'
-
-function getBaseUrl() {
-  if (process.env.NEXT_PUBLIC_APP_URL) {
-    return process.env.NEXT_PUBLIC_APP_URL
-  }
-  if (process.env.NEXTAUTH_URL) {
-    return process.env.NEXTAUTH_URL
-  }
-  return 'http://127.0.0.1:3000'
-}
+import { getDatabase } from '@/lib/mongodb'
 
 async function fetchFAQs(locale: AppLocale) {
   try {
-    const baseUrl = getBaseUrl()
-    const apiUrl = new URL('/api/faqs', baseUrl)
-    apiUrl.searchParams.set('locale', locale)
+    const db = await getDatabase()
+    const faqs = await db.collection('faqs')
+      .find({ isActive: true })
+      .sort({ order: 1, createdAt: 1 })
+      .toArray()
 
-    const response = await fetch(apiUrl.toString(), {
-      next: { revalidate: 3600 },
-    })
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch FAQs: ${response.statusText}`)
-    }
-
-    const data = await response.json()
-    if (data?.success && Array.isArray(data?.data)) {
-      return data.data
-        .map((faq: any) => ({
-          question: faq?.question || '',
-          answer: faq?.answer || ''
-        }))
-        .filter((faq: { question: string; answer: string }) => faq.question && faq.answer)
-    }
+    return faqs
+      .map((faq: any) => {
+        const translation = faq?.translations?.[locale] ?? {}
+        return {
+          question: translation.question ?? faq?.question ?? '',
+          answer: translation.answer ?? faq?.answer ?? ''
+        }
+      })
+      .filter((faq: { question: string; answer: string }) => faq.question && faq.answer)
   } catch (error) {
     console.error('Error fetching FAQs (server):', error)
   }
