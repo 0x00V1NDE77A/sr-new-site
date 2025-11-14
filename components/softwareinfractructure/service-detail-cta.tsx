@@ -128,15 +128,15 @@ const ServiceDetailCTA = ({ service }: ServiceDetailCTAProps) => {
           </motion.div>
 
           {/* Main CTA */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="flex justify-center">
             <motion.a
               href="/contact"
-              className="group inline-flex items-center gap-3 px-12 py-6 bg-black text-white rounded-full font-semibold text-xl hover:bg-gray-800 transition-all duration-300 ease-in-out"
+              className="group inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-5 sm:px-8 py-3.5 sm:py-4 bg-gray-900 text-white rounded-full font-semibold text-sm sm:text-base text-center hover:bg-black transition-all duration-300 ease-in-out w-full max-w-[18rem] sm:max-w-none"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <span>Start Your {service.title} Project Today</span>
-              <ArrowRight className="h-6 w-6 transform group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-3.5 w-3.5 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
             </motion.a>
           </motion.div>
         </motion.div>
@@ -145,5 +145,5 @@ const ServiceDetailCTA = ({ service }: ServiceDetailCTAProps) => {
   )
 }
 
-export default ServiceDetailCTA
 export { ServiceDetailCTA }
+export default ServiceDetailCTA
