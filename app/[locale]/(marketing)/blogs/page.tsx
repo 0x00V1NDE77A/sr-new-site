@@ -10,6 +10,7 @@ import { generateSEOMetadata } from '@/lib/seo'
 import type { Metadata } from "next"
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type AppLocale, isAppLocale } from "@/lib/i18n/config"
 import { getTranslations } from "next-intl/server"
+import type { BlogPost } from "@/lib/models/blog"
 
 // No caching for now - easier testing
 export const dynamic = "force-dynamic"
@@ -18,7 +19,18 @@ export const revalidate = 0
 // Fetch blogs from API with pagination
 const APP_BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://sr-redesign-nextjs.vercel.app"
 
-async function getBlogs(locale: AppLocale, page: number = 1, limit: number = 12) {
+type BlogPagination = {
+  page: number
+  limit: number
+  total: number
+  pages: number
+}
+
+async function getBlogs(
+  locale: AppLocale,
+  page: number = 1,
+  limit: number = 12,
+): Promise<{ blogs: BlogPost[]; pagination: BlogPagination }> {
   try {
     // For server-side fetch, we need to use the full URL
     const url = new URL('/api/blogs', APP_BASE_URL)
@@ -42,12 +54,16 @@ async function getBlogs(locale: AppLocale, page: number = 1, limit: number = 12)
     
     const data = await response.json()
     return {
-      blogs: data.blogs || [],
-      pagination: data.pagination || { page: 1, limit: 12, total: 0, pages: 1 }
+      blogs: (data.blogs || []) as BlogPost[],
+      pagination:
+        data.pagination || { page: 1, limit: 12, total: 0, pages: 1 },
     }
   } catch (error) {
     console.error('Error fetching blogs:', error)
-    return { blogs: [], pagination: { page: 1, limit: 12, total: 0, pages: 1 } }
+    return {
+      blogs: [],
+      pagination: { page: 1, limit: 12, total: 0, pages: 1 },
+    }
   }
 }
 
@@ -59,7 +75,11 @@ type BlogFallbacks = {
 }
 
 // Transform blog data to match component interface
-function transformBlogData(blog: any, locale: AppLocale, fallbacks: BlogFallbacks): PostMetaFragment | null {
+function transformBlogData(
+  blog: BlogPost | null | undefined,
+  locale: AppLocale,
+  fallbacks: BlogFallbacks,
+): PostMetaFragment | null {
   // Ensure we have valid data
   if (!blog) {
     console.warn('Invalid blog data:', blog)
@@ -68,7 +88,7 @@ function transformBlogData(blog: any, locale: AppLocale, fallbacks: BlogFallback
 
   // Clean and validate content
   const contentBlocks = Array.isArray(blog.content) ? blog.content : []
-  const validContentBlocks = contentBlocks.filter((block: any) => 
+  const validContentBlocks = contentBlocks.filter((block: any) =>
     block && block.type && block.content && String(block.content).trim()
   )
 
@@ -80,6 +100,8 @@ function transformBlogData(blog: any, locale: AppLocale, fallbacks: BlogFallback
       excerpt = String(firstParagraph.content).substring(0, 150) + '...'
     }
   }
+
+  const dateValue = blog.publishedAt ?? blog.createdAt ?? new Date()
 
   return {
     _id: blog._id?.toString() || 'unknown',
@@ -98,7 +120,7 @@ function transformBlogData(blog: any, locale: AppLocale, fallbacks: BlogFallback
       alt: blog.title || fallbacks.coverAlt,
       aspectRatio: 1.5
     },
-    date: blog.publishedAt || blog.createdAt || new Date().toISOString(),
+    date: new Date(dateValue).toISOString(),
     excerpt: excerpt || fallbacks.noExcerpt
   }
 }
@@ -203,8 +225,8 @@ export default async function Page({
     )
   }
 
-  const heroPost = blogs[0]
-  const morePosts = blogs.slice(1)
+  const heroPost: BlogPost | undefined = blogs[0]
+  const morePosts: BlogPost[] = blogs.slice(1)
 
   // Transform and filter out invalid blogs
   const transformedHeroPost = heroPost ? transformBlogData(heroPost, locale, blogFallbacks) : null
