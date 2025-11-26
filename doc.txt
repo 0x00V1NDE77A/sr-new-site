@@ -1,0 +1,31 @@
+Outrank Integration Notes
+=========================
+
+1. Existing Blog APIs
+---------------------
+- `POST /api/admin/blogs`: creates a new blog post after `adminAuth()` verifies the request. Automatically normalizes SEO data, generates the slug, calculates reading time, and updates category/tag counters.
+- `GET /api/admin/blogs`: returns paginated/filterable blog data for the admin grid.
+- `GET/PUT/DELETE /api/admin/blogs/[id]`: fetch/update/remove a single blog, reusing slug/SEO/translations helpers and keeping analytics fields in sync.
+- `GET /api/blogs` and `GET /api/blogs/[slug]`: public, read-only endpoints that surface published content with localization applied.
+
+2. Outrank Capabilities From Docs
+---------------------------------
+- Outrank exposes API access for third-party integrations; access comes through their support/commercial plan per their feature overview (see https://www.outranking.io/features/).
+- Their official WordPress plugin uses an API key to authenticate and push AI-generated content directly into a CMS, which implies the platform can call outbound webhooks if we provide a secure endpoint (see https://wordpress.org/plugins/outrank/).
+
+3. New Integration Implementation
+---------------------------------
+- Added `lib/services/blog-admin.ts`, which centralizes slug generation, SEO normalization, translation sanitizing, tag/category counters, and a reusable `createBlogFromPayload` helper.
+- Updated `POST /api/admin/blogs` and the `[id]` admin route to use the shared helpers, keeping existing behavior intact.
+- Created `POST /api/integrations/outrank/blogs`, secured via the `x-outrank-api-key` header and the `OUTRANK_API_KEY` environment variable. The route simply validates the key, reuses the shared create helper, and returns `{ message, blogId, slug }`.
+
+4. Deployment / Handoff Checklist
+---------------------------------
+1. Set `OUTRANK_API_KEY` in all environments (e.g., Vercel Project Settings → Environment Variables). Rotate as needed.
+2. Share with Outrank:
+   - Endpoint: `POST https://<domain>/api/integrations/outrank/blogs`
+   - Header: `x-outrank-api-key: <the shared secret>`
+   - Payload schema: identical to `POST /api/admin/blogs` (title, excerpt, content blocks, hero image, category, tags, status, featured flag, author object, optional translations + SEO object).
+   - Expected responses: `201` on success with `{ blogId, slug }`, `400` if slug exists, `401` for invalid key, `503` if key not configured.
+3. (Optional) If Outrank needs read access, add a GET variant guarded by the same header following the same helper pattern.
+
